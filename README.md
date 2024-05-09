@@ -41,7 +41,23 @@ The following project implements an analog circuit from which we want to extract
     netgen -batch lvs "../xschem/example_por.spice example_por" "../mag/example_por.spice example_por"
     
 
+## Command
 
+- export CARAVEL_LITE=0
+- make setup
+- Modificar 
+
+    ./verilog
+
+    mgmt_core_wrapper/verilog/dv/firmware/defs.h 
+
+    //#define reg_debug_2 (*(volatile unsigned int*)(USER_SPACE_ADDR + USER_SPACE_SIZE))
+    
+    //#define reg_debug_1 (*(volatile unsigned int*)(USER_SPACE_ADDR + USER_SPACE_SIZE - 4))
+
+    mgmt_core_wrapper/verilog/dv/make/sim.makefile
+
+    ./verilog/includes
 
 
 Refer to [README](docs/source/index.rst) for this sample project documentation. 

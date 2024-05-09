@@ -13,14 +13,9 @@
 // limitations under the License.
 // SPDX-License-Identifier: Apache-2.0
 
-`default_nettype wire
+`default_nettype none
 
 `timescale 1 ns / 1 ps
-
-`include "uprj_analog_netlists.v"
-`include "caravan_netlists.v"
-`include "spiflash.v"
-`include "tbuart.v"
 
 module mprj_por_tb;
     // Signals declaration
@@ -161,7 +156,7 @@ module mprj_por_tb;
         .io3()          // not used
     );
 
-    // Testbench UART
+    // // Testbench UART
     tbuart tbuart (
         .ser_rx(uart_tx)
     );

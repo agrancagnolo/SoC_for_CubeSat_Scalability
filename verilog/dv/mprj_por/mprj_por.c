@@ -16,13 +16,17 @@
  */
 
 // This include is relative to $CARAVEL_PATH (see Makefile)
-#include "verilog/dv/caravel/defs.h"
-
+#include <defs.h>
+#include <stub.c>
 // --------------------------------------------------------
 
 void main()
 {
-    reg_spimaster_config = 0xa002;	// Enable, prescaler = 2
+	/* Set up the housekeeping SPI to be connected internally so	*/
+	/* that external pin changes don't affect it.			*/
+
+	// reg_spimaster_control = SPI_MASTER_ENABLE | (2 & SPI_MASTER_DIV_MASK);
+	// reg_spimaster_control |= SPI_HOUSEKEEPING_CONN;
 
     reg_mprj_datal = 0x00000000;
     reg_mprj_datah = 0x00000000;
