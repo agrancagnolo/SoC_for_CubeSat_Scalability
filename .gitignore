@@ -10,6 +10,7 @@
 /logs
 /.vscode
 /venv-cocotb
+/mpw_precheck
 *.hex*
 *.lst
 *.vcd

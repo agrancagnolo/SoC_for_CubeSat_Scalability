@@ -151,7 +151,7 @@ wb_buttons_leds wb_buttons_leds (
     .buttons    (io_in[9:7]),
     .leds       (io_out[21:14]),
     .led_enb    (io_oeb[21:14])
-    
+
 );
 // /*--------------------------------------*/
 // /* User project is instantiated  here   */
