@@ -20,7 +20,7 @@
 .SILENT: clean all
 
 
-PATTERNS = mprj_por wb_prueba
+PATTERNS = wb_prueba test_mixer test_uart
 
 all:  ${PATTERNS}
 

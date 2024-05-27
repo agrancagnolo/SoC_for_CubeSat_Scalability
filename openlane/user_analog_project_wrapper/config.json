@@ -7,21 +7,21 @@
     "ROUTING_CORES": 1,
     "CLOCK_PERIOD": 25,
     "CLOCK_PORT": "wb_clk_i",
-    "CLOCK_NET": "wb_buttons_leds.clk",
-    "FP_PDN_MACRO_HOOKS": "wb_buttons_leds vccd1 vssd1 vccd1 vssd1",
+    "CLOCK_NET": "test_mixer.clk",
+    "FP_PDN_MACRO_HOOKS": "test_mixer vccd1 vssd1 vccd1 vssd1",
     "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
     "MAGIC_DEF_LABELS": 0,
     "VERILOG_FILES_BLACKBOX": [
-        "dir::../../verilog/gl/wb_buttons_leds.v"
+        "dir::../../verilog/gl/test_mixer.v"
     ],
-    "EXTRA_LEFS": "dir::../../lef/wb_buttons_leds.lef",
-    "EXTRA_GDS_FILES": "dir::../../gds/wb_buttons_leds.gds",
-    "EXTRA_LIBS": "dir::../../lib/wb_buttons_leds.lib",
+    "EXTRA_LEFS": "dir::../../lef/test_mixer.lef",
+    "EXTRA_GDS_FILES": "dir::../../gds/test_mixer.gds",
+    "EXTRA_LIBS": "dir::../../lib/test_mixer.lib",
     "EXTRA_SPEFS": [
-        "wb_buttons_leds", 
-        "dir::../../spef/multicorner/wb_buttons_leds.min.spef", 
-        "dir::../../spef/multicorner/wb_buttons_leds.nom.spef", 
-        "dir::../../spef/multicorner/wb_buttons_leds.max.spef"
+        "test_mixer", 
+        "dir::../../spef/multicorner/test_mixer.min.spef", 
+        "dir::../../spef/multicorner/test_mixer.nom.spef", 
+        "dir::../../spef/multicorner/test_mixer.max.spef"
     ],
     "BASE_SDC_FILE": "dir::base_user_analog_project_wrapper.sdc",
     "IO_SYNC": 0,

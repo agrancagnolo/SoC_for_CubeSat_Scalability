@@ -33,8 +33,8 @@ void main()
 	/* Set up the housekeeping SPI to be connected internally so	*/
 	/* that external pin changes don't affect it.			*/
 
-	// reg_spimaster_control = SPI_MASTER_ENABLE | (2 & SPI_MASTER_DIV_MASK);
-	// reg_spimaster_control |= SPI_HOUSEKEEPING_CONN;
+	reg_spimaster_control = SPI_MASTER_ENABLE | (2 & SPI_MASTER_DIV_MASK);
+	reg_spimaster_control |= SPI_HOUSEKEEPING_CONN;
 	// Connect the housekeeping SPI to the SPI master
 	// so that the CSB line is not left floating.  This allows
 	// all of the GPIO pins to be used for user functions.
@@ -65,5 +65,12 @@ void main()
 
     // Then set all the leds, signalling the end of the test
     reg_wb_leds = 0xFF;
+
+	//while(1){
+	//while(delay){espera << }
+	// enviar =>
+	// datos = recibir
+	// print(datos);
+	// } 
 }
 
