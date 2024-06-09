@@ -189,7 +189,7 @@ module test_mixer #(
     //Sumador
     always @(posedge toggle) begin
 
-        if(!sent) //sent=0
+        if(sent == 2'b00) //sent=0
         begin
             contador <= contador + 1;
         end

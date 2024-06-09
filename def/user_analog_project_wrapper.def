@@ -9437,7 +9437,7 @@ NETS 655 ;
       NEW met3 ( 375820 19380 ) M3M4_PR
       NEW met3 ( 375820 503540 ) M3M4_PR
       NEW met2 ( 238970 18020 ) M2M3_PR
-      NEW met2 ( 1132060 18700 ) M2M3_PR
+      NEW met2 ( 1132060 18700 ) M2M3_PR_M
       NEW met3 ( 1132060 18700 ) M3M4_PR
       NEW met3 ( 1132060 502860 ) M3M4_PR
       NEW met3 ( 312340 18020 ) M3M4_PR
@@ -9485,7 +9485,7 @@ NETS 655 ;
       NEW met4 ( 447580 15300 ) ( * 62100 )
       NEW met4 ( 447580 62100 ) ( 448500 * )
       NEW met2 ( 400430 12580 ) M2M3_PR
-      NEW met2 ( 1289380 18700 ) M2M3_PR
+      NEW met2 ( 1289380 18700 ) M2M3_PR_M
       NEW met3 ( 1282940 18700 ) M3M4_PR
       NEW met1 ( 1276730 502690 ) M1M2_PR
       NEW met2 ( 1276730 502860 ) M2M3_PR
@@ -9508,7 +9508,7 @@ NETS 655 ;
       NEW met2 ( 292330 17340 ) M2M3_PR
       NEW met3 ( 295780 17340 ) M3M4_PR
       NEW met3 ( 295780 508980 ) M3M4_PR
-      NEW met2 ( 1368040 18700 ) M2M3_PR
+      NEW met2 ( 1368040 18700 ) M2M3_PR_M
       NEW met3 ( 1366660 18700 ) M3M4_PR
       NEW met3 ( 1366660 512380 ) M3M4_PR ;
     - wbs_adr_i[14] ( PIN wbs_adr_i[14] ) ( test_mixer wbs_adr_i[14] ) + USE SIGNAL
@@ -9523,7 +9523,7 @@ NETS 655 ;
       NEW met3 ( 309580 510340 ) M3M4_PR
       NEW met2 ( 400890 510340 ) M2M3_PR
       NEW met2 ( 400890 515780 ) M2M3_PR
-      NEW met2 ( 1446700 18700 ) M2M3_PR
+      NEW met2 ( 1446700 18700 ) M2M3_PR_M
       NEW met3 ( 1442100 18700 ) M3M4_PR
       NEW met3 ( 1442100 515780 ) M3M4_PR
       NEW met3 ( 309580 18020 ) M3M4_PR
@@ -9633,7 +9633,7 @@ NETS 655 ;
       NEW met3 ( 396980 504220 ) M3M4_PR
       NEW met2 ( 397210 504220 ) M2M3_PR
       NEW met1 ( 397210 506090 ) M1M2_PR
-      NEW met2 ( 1840000 18700 ) M2M3_PR
+      NEW met2 ( 1840000 18700 ) M2M3_PR_M
       NEW met3 ( 1838620 18700 ) M3M4_PR
       NEW met1 ( 1835630 506090 ) M1M2_PR
       NEW met2 ( 1835630 504220 ) M2M3_PR
@@ -9654,7 +9654,7 @@ NETS 655 ;
       NEW met2 ( 416530 1700 0 ) ( * 18020 )
       NEW met4 ( 419060 18020 ) ( * 504900 )
       NEW met3 ( 419060 504900 ) M3M4_PR
-      NEW met2 ( 1918660 18700 ) M2M3_PR
+      NEW met2 ( 1918660 18700 ) M2M3_PR_M
       NEW met3 ( 1907620 18700 ) M3M4_PR
       NEW met3 ( 1907620 504900 ) M3M4_PR
       NEW met2 ( 416530 18020 ) M2M3_PR
@@ -9782,7 +9782,7 @@ NETS 655 ;
       NEW met3 ( 506460 503540 ) M3M4_PR
       NEW met2 ( 510370 503540 ) M2M3_PR
       NEW met1 ( 510370 504730 ) M1M2_PR
-      NEW met2 ( 2311960 18700 ) M2M3_PR
+      NEW met2 ( 2311960 18700 ) M2M3_PR_M
       NEW met3 ( 2314260 18700 ) M3M4_PR
       NEW met1 ( 2311730 504730 ) M1M2_PR
       NEW met2 ( 2311730 504220 ) M2M3_PR
@@ -9802,7 +9802,7 @@ NETS 655 ;
       NEW met3 ( 559820 503540 ) M3M4_PR
       NEW met2 ( 562810 503540 ) M2M3_PR
       NEW met1 ( 562810 504050 ) M1M2_PR
-      NEW met2 ( 2390620 18700 ) M2M3_PR
+      NEW met2 ( 2390620 18700 ) M2M3_PR_M
       NEW met3 ( 2390620 18700 ) M3M4_PR
       NEW met1 ( 2387630 504050 ) M1M2_PR
       NEW met2 ( 2387630 504220 ) M2M3_PR
@@ -9998,7 +9998,7 @@ NETS 655 ;
       + ROUTED met2 ( 20470 1700 0 ) ( * 18020 )
       NEW met3 ( 20470 18020 ) ( 161920 * )
       NEW met2 ( 20470 18020 ) M2M3_PR
-      NEW met2 ( 161920 18020 ) M2M3_PR ;
+      NEW met2 ( 161920 18020 ) M2M3_PR_M ;
     - wbs_dat_i[0] ( PIN wbs_dat_i[0] ) ( test_mixer wbs_dat_i[0] ) + USE SIGNAL
       + ROUTED met2 ( 44390 1700 0 ) ( * 13940 )
       NEW met3 ( 44390 13940 ) ( 62100 * )
@@ -10052,7 +10052,7 @@ NETS 655 ;
       NEW met2 ( 280830 15980 ) M2M3_PR
       NEW met3 ( 486220 17340 ) M3M4_PR
       NEW met3 ( 486220 513060 ) M3M4_PR
-      NEW met2 ( 1315600 18700 ) M2M3_PR
+      NEW met2 ( 1315600 18700 ) M2M3_PR_M
       NEW met3 ( 1312380 18700 ) M3M4_PR
       NEW met3 ( 1312380 513060 ) M3M4_PR
       NEW met2 ( 313950 15980 ) M2M3_PR
@@ -10073,7 +10073,7 @@ NETS 655 ;
       NEW met3 ( 316250 15980 ) ( 340860 * )
       NEW met2 ( 316250 1700 0 ) ( * 15980 )
       NEW met4 ( 340860 15980 ) ( * 505580 )
-      NEW met2 ( 1472920 18700 ) M2M3_PR
+      NEW met2 ( 1472920 18700 ) M2M3_PR_M
       NEW met3 ( 1458660 18700 ) M3M4_PR
       NEW met3 ( 1458660 511700 ) M3M4_PR
       NEW met3 ( 340860 505580 ) M3M4_PR
@@ -10193,7 +10193,7 @@ NETS 655 ;
       NEW met3 ( 382260 502860 ) M3M4_PR
       NEW met2 ( 386170 502860 ) M2M3_PR
       NEW met1 ( 386170 506770 ) M1M2_PR
-      NEW met2 ( 1787560 18700 ) M2M3_PR
+      NEW met2 ( 1787560 18700 ) M2M3_PR_M
       NEW met3 ( 1779740 18700 ) M3M4_PR
       NEW met1 ( 1776290 506770 ) M1M2_PR
       NEW met2 ( 1776290 504220 ) M2M3_PR
@@ -10205,7 +10205,7 @@ NETS 655 ;
       NEW met3 ( 405030 15300 ) ( 431940 * )
       NEW met2 ( 405030 1700 0 ) ( * 15300 )
       NEW met4 ( 431940 15300 ) ( * 505580 )
-      NEW met2 ( 1866220 18700 ) M2M3_PR
+      NEW met2 ( 1866220 18700 ) M2M3_PR_M
       NEW met3 ( 1852420 18700 ) M3M4_PR
       NEW met3 ( 1852420 505580 ) M3M4_PR
       NEW met3 ( 431940 505580 ) M3M4_PR
@@ -10516,7 +10516,7 @@ NETS 655 ;
       NEW met3 ( 553380 503540 ) M3M4_PR
       NEW met2 ( 558670 503540 ) M2M3_PR
       NEW met1 ( 558670 503710 ) M1M2_PR
-      NEW met2 ( 2495500 18700 ) M2M3_PR
+      NEW met2 ( 2495500 18700 ) M2M3_PR_M
       NEW met3 ( 2493660 18700 ) M3M4_PR
       NEW met1 ( 2491130 503710 ) M1M2_PR
       NEW met2 ( 2491130 504220 ) M2M3_PR
@@ -10527,7 +10527,7 @@ NETS 655 ;
       NEW met1 ( 564190 16830 ) ( 635490 * )
       NEW met3 ( 635490 15300 ) ( 2574160 * )
       NEW met1 ( 564190 16830 ) M1M2_PR
-      NEW met2 ( 2574160 15300 ) M2M3_PR
+      NEW met2 ( 2574160 15300 ) M2M3_PR_M
       NEW met1 ( 635490 16830 ) M1M2_PR
       NEW met2 ( 635490 15300 ) M2M3_PR ;
     - wbs_dat_i[29] ( PIN wbs_dat_i[29] ) ( test_mixer wbs_dat_i[29] ) + USE SIGNAL
@@ -10770,7 +10770,7 @@ NETS 655 ;
     - wbs_dat_o[16] ( PIN wbs_dat_o[16] ) ( test_mixer wbs_dat_o[16] ) + USE SIGNAL
       + ROUTED met2 ( 357650 1700 0 ) ( * 15980 )
       NEW met3 ( 357650 15980 ) ( 1656460 * )
-      NEW met2 ( 1656460 15980 ) M2M3_PR
+      NEW met2 ( 1656460 15980 ) M2M3_PR_M
       NEW met2 ( 357650 15980 ) M2M3_PR ;
     - wbs_dat_o[17] ( PIN wbs_dat_o[17] ) ( test_mixer wbs_dat_o[17] ) + USE SIGNAL
       + ROUTED met2 ( 375130 1700 0 ) ( * 17850 )
@@ -10790,7 +10790,7 @@ NETS 655 ;
       NEW met1 ( 1670030 507110 ) M1M2_PR
       NEW met2 ( 1670030 504220 ) M2M3_PR
       NEW met3 ( 1675780 504220 ) M3M4_PR
-      NEW met2 ( 1735120 18020 ) M2M3_PR
+      NEW met2 ( 1735120 18020 ) M2M3_PR_M
       NEW met3 ( 362020 18020 ) M3M4_PR
       NEW met2 ( 365470 18020 ) M2M3_PR
       NEW met1 ( 365470 17850 ) M1M2_PR
@@ -10846,7 +10846,7 @@ NETS 655 ;
       NEW met3 ( 1965580 17340 ) M3M4_PR
       NEW met3 ( 1965580 508300 ) M3M4_PR
       NEW met3 ( 437460 508980 ) M3M4_PR
-      NEW met2 ( 1971100 17340 ) M2M3_PR
+      NEW met2 ( 1971100 17340 ) M2M3_PR_M
       NEW met2 ( 428490 18020 ) M2M3_PR
       NEW met3 ( 437460 18020 ) M3M4_PR ;
     - wbs_dat_o[21] ( PIN wbs_dat_o[21] ) ( test_mixer wbs_dat_o[21] ) + USE SIGNAL
@@ -10866,7 +10866,7 @@ NETS 655 ;
       NEW met2 ( 779470 13260 ) M2M3_PR
       NEW met2 ( 800630 13260 ) M2M3_PR
       NEW met2 ( 800630 16660 ) M2M3_PR
-      NEW met2 ( 2049760 16660 ) M2M3_PR
+      NEW met2 ( 2049760 16660 ) M2M3_PR_M
       NEW met2 ( 446430 18020 ) M2M3_PR ;
     - wbs_dat_o[22] ( PIN wbs_dat_o[22] ) ( test_mixer wbs_dat_o[22] ) + USE SIGNAL
       + ROUTED met2 ( 470810 5610 ) ( * 6460 )

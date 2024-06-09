@@ -22,11 +22,9 @@ The following project implements an analog circuit from which we want to extract
 
 ## Run magic
 
-    export PDK_ROOT=/usr/local/share/pdks/
-    sudo magic -T XR -rcfile $PDK_ROOT/sky130A/libs.tech/magic/sky130A.magicrc
-    
-    magic -rcfile ~/usr/local/share/pdk/sky130A/libs.tech/magic/sky130A.magicrc
-    magic -rcfile ~/home/jona/Desktop/Proyecto_Final/caravan/dependencies/pdks/sky130A/libs.tech/magic/sky130A.magicrc
+    export PDK_ROOT=/usr/local/share/pdk/
+    magic -d XR -rcfile $PDK_ROOT/sky130A/libs.tech/magic/sky130A.magicrc
+
 
 
 ## Run xschem
