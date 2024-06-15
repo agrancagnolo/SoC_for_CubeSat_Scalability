@@ -181,6 +181,6 @@ The following project implements an analog circuit from which we want to extract
 	ulimit -n 2024
 	make truck
 
-![caravan](docs/_static/Caravan.png)
+![caravan](docs/_static/Caravan.jpg)
 
 Refer to [README](docs/source/index.rst) for this sample project documentation. 
