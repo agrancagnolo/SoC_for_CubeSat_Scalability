@@ -25,10 +25,10 @@ The following project implements an analog circuit from which we want to extract
     export PDK_ROOT=/usr/local/share/pdk/
     magic -d XR -rcfile $PDK_ROOT/sky130A/libs.tech/magic/sky130A.magicrc
 
-    Para utilizar el pdk del repopsitorio:
+    Para utilizar el pdk del repositorio y abrir user_analog_project_wrapper:
 
     export PDK_ROOT=/home/jona/Desktop/Repositorio_LAB/test_mixer/dependencies/pdks/
-    magic -d XR -rcfile $PDK_ROOT/sky130A/libs.tech/magic/sky130A.magicrc
+    magic -d XR -rcfile $PDK_ROOT/sky130A/libs.tech/magic/sky130A.magicrc mag/user_analog_project_wrapper.mag
 
 
 
