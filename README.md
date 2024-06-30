@@ -167,7 +167,7 @@ The following project implements an analog circuit from which we want to extract
 	// .DRN_HVC(DRN_HVC),
 	// .SRC_BDY_HVC(SRC_BDY_HVC),
 ```
-![verify-test_mixer-rtl](docs/_static/img_1.jpeg)
+![verify-test_mixer-rtl](img_1.jpg)
 
 - Dentro del directorio openlane ejecutar
 
@@ -181,6 +181,16 @@ The following project implements an analog circuit from which we want to extract
 	ulimit -n 2024
 	make truck
 
-![caravan](docs/_static/Caravan.jpg)
+![caravan](Caravan.jpg)
+
+- Proximos pasos
+
+	make run-precheck
+
+_Comentarios_
+
+```
+Consistency is a strange check for analog designs. I think you can eliminate it my copying the extracted netlist precheck_results/28_MAR_2024___23_23_11/tmp/ext/user_analog_project_wrapper.gds.spice or precheck_results/28_MAR_2024___23_23_11/tmp/spice_fix/user_analog_project_wrapper.spice to netgen/user_analog_project_wrapper.spice.
+```
 
 Refer to [README](docs/source/index.rst) for this sample project documentation. 
