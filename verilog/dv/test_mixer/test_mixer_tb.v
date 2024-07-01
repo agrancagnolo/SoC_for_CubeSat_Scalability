@@ -13,6 +13,8 @@
 // limitations under the License.
 // SPDX-License-Identifier: Apache-2.0
 
+`include "tb_uart_decimal.v"
+
 `default_nettype none
 
 `timescale 1 ns / 1 ps
@@ -156,7 +158,7 @@ module test_mixer_tb;
 		.io3()			// not used
 	);
 	// Testbench UART
-	tbuart tbuart (
+	tb_uart_decimal tb_uart_decimal (
 		.ser_rx(uart_rx)
 	);
 endmodule

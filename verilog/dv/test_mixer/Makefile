@@ -23,7 +23,6 @@ BLOCKS := $(shell basename $(PWDD))
 
 CONFIG = user_analog_project_wrapper
 
-
 include $(MCW_ROOT)/verilog/dv/make/env.makefile
 include $(MCW_ROOT)/verilog/dv/make/var.makefile
 include $(MCW_ROOT)/verilog/dv/make/cpu.makefile

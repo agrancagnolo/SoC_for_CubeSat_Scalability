@@ -427,3 +427,35 @@ caravel-sta: ./env/spef-mapping.tcl
 	@echo "You can find results for all corners in $(CUP_ROOT)/signoff/caravel/openlane-signoff/timing/"
 	@echo "Check summary.log of a specific corner to point to reports with reg2reg violations" 
 	@echo "Cap and slew violations are inside summary.log file itself"
+
+VERILOG_FILE_1 = dependencies/pdks/sky130A/libs.ref/sky130_fd_io/verilog/sky130_ef_io.v
+LINES_TO_COMMENT_1 = 1364,1365
+
+# Regla para comentar las líneas especificadas en el archivo Verilog
+comment_lines_sky130_ef_io:
+	sed -i "${LINES_TO_COMMENT_1}s/^/\/\//" "${VERILOG_FILE_1}"
+	@echo "Lines ${LINES_TO_COMMENT_1} in ${VERILOG_FILE_1} have been commented."
+
+# Regla para descomentar las líneas especificadas en el archivo Verilog
+uncomment_lines_sky130_ef_io:
+	sed -i "${LINES_TO_COMMENT_1}s/^\/\///" "${VERILOG_FILE_1}"
+	@echo "Lines ${LINES_TO_COMMENT_1} in ${VERILOG_FILE_1} have been uncommented."
+
+# Regla PHONY para evitar conflictos con archivos de mismo nombre
+.PHONY: comment_lines_sky130_ef_io uncomment_lines_sky130_ef_io
+
+VERILOG_FILE_2 = mgmt_core_wrapper/verilog/dv/firmware/defs.h
+LINES_TO_COMMENT_2 = 273,274
+
+# Regla para comentar las líneas especificadas en el archivo Verilog
+comment_lines_defs_h:
+	sed -i "${LINES_TO_COMMENT_2}s/^/\/\//" "${VERILOG_FILE_2}"
+	@echo "Lines ${LINES_TO_COMMENT_2} in ${VERILOG_FILE_2} have been commented."
+
+# Regla para descomentar las líneas especificadas en el archivo Verilog
+uncomment_lines_defs_h:
+	sed -i "${LINES_TO_COMMENT_2}s/^\/\///" "${VERILOG_FILE_2}"
+	@echo "Lines ${LINES_TO_COMMENT_2} in ${VERILOG_FILE_2} have been uncommented."
+
+# Regla PHONY para evitar conflictos con archivos de mismo nombre
+.PHONY: comment_lines_sky130_ef_io uncomment_lines_sky130_ef_io
