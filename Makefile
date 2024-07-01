@@ -431,31 +431,29 @@ caravel-sta: ./env/spef-mapping.tcl
 VERILOG_FILE_1 = dependencies/pdks/sky130A/libs.ref/sky130_fd_io/verilog/sky130_ef_io.v
 LINES_TO_COMMENT_1 = 1364,1365
 
-# Regla para comentar las líneas especificadas en el archivo Verilog
+# Regla para comentar las líneas especificadas en el archivo sky130_ef_io.v
 comment_lines_sky130_ef_io:
 	sed -i "${LINES_TO_COMMENT_1}s/^/\/\//" "${VERILOG_FILE_1}"
 	@echo "Lines ${LINES_TO_COMMENT_1} in ${VERILOG_FILE_1} have been commented."
 
-# Regla para descomentar las líneas especificadas en el archivo Verilog
+# Regla para descomentar las líneas especificadas en el archivo sky130_ef_io.v
 uncomment_lines_sky130_ef_io:
 	sed -i "${LINES_TO_COMMENT_1}s/^\/\///" "${VERILOG_FILE_1}"
 	@echo "Lines ${LINES_TO_COMMENT_1} in ${VERILOG_FILE_1} have been uncommented."
 
-# Regla PHONY para evitar conflictos con archivos de mismo nombre
 .PHONY: comment_lines_sky130_ef_io uncomment_lines_sky130_ef_io
 
 VERILOG_FILE_2 = mgmt_core_wrapper/verilog/dv/firmware/defs.h
 LINES_TO_COMMENT_2 = 273,274
 
-# Regla para comentar las líneas especificadas en el archivo Verilog
+# Regla para comentar las líneas especificadas en el archivo defs.h
 comment_lines_defs_h:
 	sed -i "${LINES_TO_COMMENT_2}s/^/\/\//" "${VERILOG_FILE_2}"
 	@echo "Lines ${LINES_TO_COMMENT_2} in ${VERILOG_FILE_2} have been commented."
 
-# Regla para descomentar las líneas especificadas en el archivo Verilog
+# Regla para descomentar las líneas especificadas en el archivo defs.h
 uncomment_lines_defs_h:
 	sed -i "${LINES_TO_COMMENT_2}s/^\/\///" "${VERILOG_FILE_2}"
 	@echo "Lines ${LINES_TO_COMMENT_2} in ${VERILOG_FILE_2} have been uncommented."
 
-# Regla PHONY para evitar conflictos con archivos de mismo nombre
 .PHONY: comment_lines_sky130_ef_io uncomment_lines_sky130_ef_io
