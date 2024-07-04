@@ -167,7 +167,7 @@ The following project implements an analog circuit from which we want to extract
 	// .DRN_HVC(DRN_HVC),
 	// .SRC_BDY_HVC(SRC_BDY_HVC),
 ```
-![verify-test_mixer-rtl](img_1.jpg)
+![verify-test_mixer-rtl](docs/images/img_1.jpg)
 
 - Dentro del directorio openlane ejecutar
 
@@ -181,7 +181,7 @@ The following project implements an analog circuit from which we want to extract
 	ulimit -n 2024
 	make truck
 
-![caravan](Caravan.jpg)
+![caravan](docs/images/Caravan.jpg)
 
 - Proximos pasos
 
