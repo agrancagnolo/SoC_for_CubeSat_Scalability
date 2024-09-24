@@ -6,22 +6,22 @@
     ],
     "ROUTING_CORES": 1,
     "CLOCK_PERIOD": 25,
-    "CLOCK_PORT": "wb_clk_i",
-    "CLOCK_NET": "test_mixer.clk",
-    "FP_PDN_MACRO_HOOKS": "test_mixer vccd1 vssd1 vccd1 vssd1",
+    "CLOCK_PORT": "io_in[13]",
+    "CLOCK_NET": "designs_wrapper.clk",
+    "FP_PDN_MACRO_HOOKS": "designs_wrapper vccd1 vssd1 vccd1 vssd1",
     "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
     "MAGIC_DEF_LABELS": 0,
     "VERILOG_FILES_BLACKBOX": [
-        "dir::../../verilog/gl/test_mixer.v"
+        "dir::../../verilog/gl/designs_wrapper.v"
     ],
-    "EXTRA_LEFS": "dir::../../lef/test_mixer.lef",
-    "EXTRA_GDS_FILES": "dir::../../gds/test_mixer.gds",
-    "EXTRA_LIBS": "dir::../../lib/test_mixer.lib",
+    "EXTRA_LEFS": "dir::../../lef/designs_wrapper.lef",
+    "EXTRA_GDS_FILES": "dir::../../gds/designs_wrapper.gds",
+    "EXTRA_LIBS": "dir::../../lib/designs_wrapper.lib",
     "EXTRA_SPEFS": [
-        "test_mixer", 
-        "dir::../../spef/multicorner/test_mixer.min.spef", 
-        "dir::../../spef/multicorner/test_mixer.nom.spef", 
-        "dir::../../spef/multicorner/test_mixer.max.spef"
+        "designs_wrapper", 
+        "dir::../../spef/multicorner/designs_wrapper.min.spef", 
+        "dir::../../spef/multicorner/designs_wrapper.nom.spef", 
+        "dir::../../spef/multicorner/designs_wrapper.max.spef"
     ],
     "BASE_SDC_FILE": "dir::base_user_analog_project_wrapper.sdc",
     "IO_SYNC": 0,

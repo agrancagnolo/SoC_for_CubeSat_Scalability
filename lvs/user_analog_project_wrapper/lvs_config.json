@@ -12,7 +12,7 @@
 		""
 	],
 	"LVS_FLATTEN": [
-		""
+		"$UPRJ_ROOT/verilog/rtl/designs_wrapper.v"
 	],
 	"LVS_NOFLATTEN": [
 		""

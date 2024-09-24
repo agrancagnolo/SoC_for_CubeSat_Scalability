@@ -1,12 +1,12 @@
 ###############################################################################
 # Created by write_sdc
-# Fri Jun  7 21:44:20 2024
+# Mon Sep 23 23:09:07 2024
 ###############################################################################
 current_design user_analog_project_wrapper
 ###############################################################################
 # Timing Constraints
 ###############################################################################
-create_clock -name clk -period 25.0000 [get_ports {wb_clk_i}]
+create_clock -name clk -period 25.0000 [get_ports {io_in[13]}]
 set_clock_transition 0.1500 [get_clocks {clk}]
 set_clock_uncertainty 0.2500 clk
 set_propagated_clock [get_clocks {clk}]
@@ -1277,7 +1277,6 @@ set_load -pin_load 0.1900 [get_ports {wbs_dat_o[3]}]
 set_load -pin_load 0.1900 [get_ports {wbs_dat_o[2]}]
 set_load -pin_load 0.1900 [get_ports {wbs_dat_o[1]}]
 set_load -pin_load 0.1900 [get_ports {wbs_dat_o[0]}]
-set_input_transition 0.6100 [get_ports {wb_clk_i}]
 set_input_transition -min 0.0900 [get_ports {wbs_cyc_i}]
 set_input_transition -max 0.1700 [get_ports {wbs_cyc_i}]
 set_input_transition 0.1500 [get_ports {wbs_stb_i}]
