@@ -93,11 +93,15 @@ module designs_wrapper_tb;
 	end
 
 	
-	always @(o_result) begin
+	always @(mprj_io) begin
+		#1
+		$display("MPRJ-IO state = %b ", mprj_io);
 		$display("o_result state = %b ", o_result);
-		wait(o_result==5'b11111);
-		$display("Fin Test");
-		$finish;
+		if(o_result[4]) begin
+			wait(o_result==5'b11111);
+			$display("Fin Test");
+			$finish;
+		end
 	end
 
 

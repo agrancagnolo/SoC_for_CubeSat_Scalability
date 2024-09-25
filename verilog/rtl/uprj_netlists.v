@@ -24,5 +24,5 @@
     `include "gl/wb_buttons_leds.v"
 `else
     `include "user_analog_project_wrapper.v"
-    `include "test_mixer.v"
+    `include "designs_wrapper.v"
 `endif

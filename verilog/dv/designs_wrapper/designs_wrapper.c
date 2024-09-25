@@ -73,20 +73,20 @@ void main()
 	reg_mprj_io_35 =  GPIO_MODE_USER_STD_INPUT_NOPULL; 	// frequency selector[1]
 	reg_mprj_io_34 =  GPIO_MODE_USER_STD_INPUT_NOPULL; 	// frequency selector[0]
 	reg_mprj_io_33 =  GPIO_MODE_USER_STD_INPUT_NOPULL; 	// enable
-	reg_mprj_io_32 =  GPIO_MODE_MGMT_STD_OUTPUT; 		// pixel flag
-	reg_mprj_io_31 =  GPIO_MODE_MGMT_STD_OUTPUT;		// control signal
-	reg_mprj_io_30 =  GPIO_MODE_MGMT_STD_OUTPUT; 		// ADC frame
-	reg_mprj_io_29 =  GPIO_MODE_MGMT_STD_OUTPUT; 		// phi P
-	reg_mprj_io_28 =  GPIO_MODE_MGMT_STD_OUTPUT; 		// phi R
-	reg_mprj_io_27 =  GPIO_MODE_MGMT_STD_OUTPUT; 		// phi L1
-	reg_mprj_io_26 =  GPIO_MODE_MGMT_STD_OUTPUT; 		// phi L2
+	reg_mprj_io_32 =  GPIO_MODE_USER_STD_OUTPUT; 		// pixel flag
+	reg_mprj_io_31 =  GPIO_MODE_USER_STD_OUTPUT;		// control signal
+	reg_mprj_io_30 =  GPIO_MODE_USER_STD_OUTPUT; 		// ADC frame
+	reg_mprj_io_29 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi P
+	reg_mprj_io_28 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi R
+	reg_mprj_io_27 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi L1
+	reg_mprj_io_26 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi L2
 	reg_mprj_io_25 =  GPIO_MODE_USER_STD_INPUT_NOPULL; 	// signal selector
 	reg_mprj_io_13 =  GPIO_MODE_USER_STD_INPUT_NOPULL; 	// clock
-	reg_mprj_io_12 =  GPIO_MODE_MGMT_STD_OUTPUT; 		// test_out[4]
-	reg_mprj_io_11 =  GPIO_MODE_MGMT_STD_OUTPUT; 		// test_out[3]
-	reg_mprj_io_10 =  GPIO_MODE_MGMT_STD_OUTPUT; 		// test_out[2]
-	reg_mprj_io_9 =   GPIO_MODE_MGMT_STD_OUTPUT; 		// test_out[1]
-	reg_mprj_io_8 =   GPIO_MODE_MGMT_STD_OUTPUT; 		// test_out[0]
+	reg_mprj_io_12 =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[4]
+	reg_mprj_io_11 =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[3]
+	reg_mprj_io_10 =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[2]
+	reg_mprj_io_9 =   GPIO_MODE_USER_STD_OUTPUT; 		// test_out[1]
+	reg_mprj_io_8 =   GPIO_MODE_USER_STD_OUTPUT; 		// test_out[0]
 	reg_mprj_io_7 =   GPIO_MODE_USER_STD_INPUT_NOPULL; 	// test selector
 
 	
@@ -128,29 +128,29 @@ void main()
 			contador = contador + 1; 
 		}
 		if (PHI_P_ADDRESS == 0 && PHI_R_ADDRESS == 0 && PHI_L2_ADDRESS == 0 && PHI_L1_ADDRESS == 1) {
-			RETURN_ADDRESS = RETURN_ADDRESS | 0x02;
-		}
-		while(contador < 20){
-			CLOCK_ADDRESS = 0xFF;
-			delay(10);
-			CLOCK_ADDRESS = 0x00;
-			delay(10);
-			contador = contador + 1; 
-			 
-		}
-		if (PHI_P_ADDRESS == 0 && PHI_R_ADDRESS == 1 && PHI_L2_ADDRESS == 1 && PHI_L1_ADDRESS == 0) {
-			RETURN_ADDRESS = RETURN_ADDRESS | 0x08;
+			RETURN_ADDRESS = 0x03;
 		}
 		while(contador < 21){
 			CLOCK_ADDRESS = 0xFF;
 			delay(10);
 			CLOCK_ADDRESS = 0x00;
 			delay(10);
+			if (PHI_P_ADDRESS == 0 && PHI_R_ADDRESS == 1 && PHI_L2_ADDRESS == 1 && PHI_L1_ADDRESS == 0) {
+			RETURN_ADDRESS = 0x0F;
+			}
 			contador = contador + 1; 
 			 
 		}
-		if (PHI_P_ADDRESS == 0 && PHI_R_ADDRESS == 0 && PHI_L2_ADDRESS == 1 && PHI_L1_ADDRESS == 0) {
-			RETURN_ADDRESS = RETURN_ADDRESS | 0x10;
+		while(contador < 22){
+			CLOCK_ADDRESS = 0xFF;
+			delay(10);
+			CLOCK_ADDRESS = 0x00;
+			if (PHI_P_ADDRESS == 0 && PHI_R_ADDRESS == 0 && PHI_L2_ADDRESS == 1 && PHI_L1_ADDRESS == 0) {
+			RETURN_ADDRESS = 0x1F;
+			}
+			delay(10);
+			contador = contador + 1; 
+			 
 		}
 		while(contador < 25){
 			CLOCK_ADDRESS = 0xFF;
