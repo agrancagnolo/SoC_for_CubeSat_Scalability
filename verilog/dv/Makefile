@@ -20,7 +20,7 @@
 .SILENT: clean all
 
 
-PATTERNS = wb_prueba test_mixer test_uart
+PATTERNS = wb_prueba test_mixer test_uart signal_generator
 
 all:  ${PATTERNS}
 

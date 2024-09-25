@@ -25,4 +25,7 @@
 `else
     `include "user_analog_project_wrapper.v"
     `include "designs_wrapper.v"
+    `include "signal_generator.v"
+    `include "signal_selector.v"
+    `include "analog_signal_generator.v"
 `endif

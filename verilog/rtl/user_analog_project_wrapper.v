@@ -124,62 +124,52 @@ module user_analog_project_wrapper (
 /*--------------------------------------*/
 
 
-designs_wrapper  designs_wrapper (
-  
+signal_generator signal_generator (
     `ifdef USE_POWER_PINS
 	    .vccd1(vccd1),	// User area 1 1.8V power
 	    .vssd1(vssd1),	// User area 1 digital ground
     `endif
 
-    // Wishbone Slave ports (WB MI A)
-    .i_wb_clk(wb_clk_i),
-    .i_wb_rst(wb_rst_i),
-    .i_wb_cyc(wbs_cyc_i),
-    .i_wb_stb(wbs_stb_i),
-    .i_wb_we(wbs_we_i),
-    .i_wb_addr(wbs_adr_i),
-    .i_wb_data(wbs_dat_i),
-    .o_wb_ack(wbs_ack_o),
-    .o_wb_data(wbs_dat_o),
+    .wb_clk_i(wb_clk_i),
+    .wb_rst_i(wb_rst_i),
 
+    // MGMT SoC Wishbone Slave
 
+    .wbs_cyc_i(wbs_cyc_i),
+    .wbs_stb_i(wbs_stb_i),
+    .wbs_we_i(wbs_we_i),
+    .wbs_sel_i(wbs_sel_i),
+    .wbs_adr_i(wbs_adr_i),
+    .wbs_dat_i(wbs_dat_i),
+    .wbs_ack_o(wbs_ack_o),
+    .wbs_dat_o(wbs_dat_o),
 
-    // Logic Analyzer Signals
-    //.la_data_in(la_data_in),
-    //.la_data_out(la_data_out),
-    //.la_oenb(la_oenb),
+    // Logic Analyzer
 
-    // IOs
-    //.io_in({io_in[25],io_in[33],io_in[37:34]}),
-    .i_signal_sel(io_in[14]),
-    .i_enable(io_in[22]),
-    .i_freq_sel(io_in[26:23]),
-    .i_clock(io_in[13]),
-    .i_test(io_in[7]),
-    .o_test(io_out[12:8]),
-    //.io_out (io_out[32:26]),
-    .o_pixel_flag(io_out[21]),
-    .o_control_signal(io_out[20]),
-    .o_ADC_frame(io_out[19]),
-    .o_phi_p(io_out[18]),
-    .o_phi_r(io_out[17]),
-    .o_phi_l1(io_out[16]),
-    .o_phi_l2(io_out[15]),
-    .io_oeb(io_oeb[26:7])
+    // .la_data_in(la_data_in),
+    // .la_data_out(la_data_out),
+    // .la_oenb (la_oenb),
 
+    // IO Pads
+    .io_in (io_in),
+ //   .io_in_3v3 (io_in_3v3),
+    .io_out(io_out),
+    .io_oeb(io_oeb)//,
 
+    // // GPIO-analog
+    // .gpio_analog(gpio_analog),
+    // .gpio_noesd(gpio_noesd),
 
-    // Analog (direct connection to GPIO pad---use with caution)
-    // Note that analog I/O is not available on the 7 lowest-numbered
-    // GPIO pads, and so the analog_io indexing is offset from the
-    // GPIO indexing by 7 (also upper 2 GPIOs do not have analog_io).
-    //.analog_io(analog_io),
+    // // Dedicated analog
+    // .io_analog(io_analog),
+    // .io_clamp_high(io_clamp_high),
+    // .io_clamp_low(io_clamp_low),
 
-    // Independent clock (on independent integer divider)
-    //.user_clock2(user_clock2),
+    // // Clock
+    // .user_clock2(user_clock2),
 
-    // User maskable interrupt signals
-    //.user_irq(user_irq) 
+    // IRQ
+  //  .irq(user_irq)
 );
 /*
 test_mixer test_mixer (

@@ -7,21 +7,21 @@
     "ROUTING_CORES": 1,
     "CLOCK_PERIOD": 25,
     "CLOCK_PORT": "io_in[13]",
-    "CLOCK_NET": "designs_wrapper.clk",
-    "FP_PDN_MACRO_HOOKS": "designs_wrapper vccd1 vssd1 vccd1 vssd1",
+    "CLOCK_NET": "signal_generator.clk",
+    "FP_PDN_MACRO_HOOKS": "signal_generator vccd1 vssd1 vccd1 vssd1",
     "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
     "MAGIC_DEF_LABELS": 0,
     "VERILOG_FILES_BLACKBOX": [
-        "dir::../../verilog/gl/designs_wrapper.v"
+        "dir::../../verilog/gl/signal_generator.v"
     ],
-    "EXTRA_LEFS": "dir::../../lef/designs_wrapper.lef",
-    "EXTRA_GDS_FILES": "dir::../../gds/designs_wrapper.gds",
-    "EXTRA_LIBS": "dir::../../lib/designs_wrapper.lib",
+    "EXTRA_LEFS": "dir::../../lef/signal_generator.lef",
+    "EXTRA_GDS_FILES": "dir::../../gds/signal_generator.gds",
+    "EXTRA_LIBS": "dir::../../lib/signal_generator.lib",
     "EXTRA_SPEFS": [
-        "designs_wrapper", 
-        "dir::../../spef/multicorner/designs_wrapper.min.spef", 
-        "dir::../../spef/multicorner/designs_wrapper.nom.spef", 
-        "dir::../../spef/multicorner/designs_wrapper.max.spef"
+        "signal_generator", 
+        "dir::../../spef/multicorner/signal_generator.min.spef", 
+        "dir::../../spef/multicorner/signal_generator.nom.spef", 
+        "dir::../../spef/multicorner/signal_generator.max.spef"
     ],
     "BASE_SDC_FILE": "dir::base_user_analog_project_wrapper.sdc",
     "IO_SYNC": 0,
