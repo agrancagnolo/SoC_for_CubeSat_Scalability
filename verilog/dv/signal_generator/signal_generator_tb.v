@@ -30,7 +30,7 @@ module signal_generator_tb;
 	//wire uart_pulse; //  Pulso salida UART
 	//reg  toggle; 	 //  Pulso Schmitt trigger
 	//reg  [3:0] pulse_counter; // Inicializar el contador
-	wire [4:0] o_result;
+	wire [2:0] o_result;
 	reg i_test;
 
 	
@@ -39,8 +39,8 @@ module signal_generator_tb;
 	assign uart_rx    =  mprj_io[6];  //Out
 	assign mprj_io[7] =  toggle;	  //In
 	assign uart_pulse =  mprj_io[35];  //Out*/
-	assign o_result    	=  	mprj_io[12:8];  //Out
-	assign mprj_io[7] 	= 	i_test; //In
+	assign o_result    	=  	mprj_io[9:7];  //Out
+	assign mprj_io[37] 	= 	i_test; //In
 	
 	// External clock is used by default.  Make this artificially fast for the
 	// simulation.  Normally this would be a slow clock and the digital PLL
@@ -99,16 +99,14 @@ module signal_generator_tb;
 	end
 
 	
-	always @(posedge o_result[4]) begin
+	always @(posedge o_result[2]) begin
 		#1
 		$display("MPRJ-IO state = %b ", mprj_io);
 		$display("o_result state = %b ", o_result);
-		if(o_result[4]) begin
-			wait(o_result[0]==1);
-			wait(o_result[1]==1);
+		if(o_result[2]) begin
+			wait(o_result[0]==0);
+			wait(o_result[1]==0);
 			wait(o_result[2]==1);
-			wait(o_result[3]==1);
-			wait(o_result[4]==1);
 			$display("Fin Test");
 			$finish;
 		end

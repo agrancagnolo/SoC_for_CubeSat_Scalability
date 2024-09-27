@@ -41,6 +41,7 @@ void delay(volatile uint32_t time) {
 void main()
 {
 	int contador;
+	int return_value;
 	// Connect the housekeeping SPI to the SPI master
 	// so that the CSB line is not left floating.  This allows
 	// all of the GPIO pins to be used for user functions.
@@ -48,15 +49,17 @@ void main()
 	// Configure lower 8-IOs as user output
 	// Observe counter value in the testbench
 	// 5 - 6 uart
-	reg_mprj_io_29 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi P
-	reg_mprj_io_28 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi R
-	reg_mprj_io_27 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi L1
-	reg_mprj_io_26 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi L2
-	reg_mprj_io_12 =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[4]
-	reg_mprj_io_11 =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[3]
-	reg_mprj_io_10 =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[2]
-	reg_mprj_io_9 =   GPIO_MODE_USER_STD_OUTPUT; 		// test_out[1]
-	reg_mprj_io_8 =   GPIO_MODE_USER_STD_OUTPUT; 		// test_out[0]
+	reg_mprj_io_10 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi P
+	reg_mprj_io_13 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi R
+	reg_mprj_io_11 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi L1
+	reg_mprj_io_12 =  GPIO_MODE_USER_STD_OUTPUT; 		// phi L2
+	reg_mprj_io_9  =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[2]
+	reg_mprj_io_8  =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[1]
+	reg_mprj_io_7  =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[0]
+	reg_mprj_io_25 =  GPIO_MODE_USER_STD_OUTPUT; 		// adc_data_ch1
+	reg_mprj_io_26 =  GPIO_MODE_USER_STD_OUTPUT; 		// adc_data_ch2
+	reg_mprj_io_27 =  GPIO_MODE_USER_STD_OUTPUT; 		// conv_finished_ch1
+	reg_mprj_io_28 =  GPIO_MODE_USER_STD_OUTPUT; 		// conv_finished_ch2
 
 	// Set UART clock to 64 kbaud (enable before I/O configuration)
 	// reg_uart_clkdiv = 625;
@@ -69,7 +72,9 @@ void main()
 	while (reg_mprj_xfer == 1);
 
 	contador = 0;
+	return_value = 0x00;
 
+	RETURN_ADDRESS = 0;
 	ENABLE_ADDRESS = 0;
 	FREQUENCY_ADDRESS = 0x0;
 	CLOCK_ADDRESS = 0x00;
@@ -85,7 +90,8 @@ void main()
 			contador = contador + 1; 
 		}
 		if (PHI_P_ADDRESS == 1 && PHI_R_ADDRESS == 1 && PHI_L2_ADDRESS == 1 && PHI_L1_ADDRESS == 0) {
-			RETURN_ADDRESS = 0x01;
+			return_value = return_value + 0x01;
+			RETURN_ADDRESS = return_value;
 		}
 		while(contador < 19){ //300us + 
 			CLOCK_ADDRESS = 0xFF;
@@ -95,7 +101,8 @@ void main()
 			contador = contador + 1; 
 		}
 		if (PHI_P_ADDRESS == 0 && PHI_R_ADDRESS == 0 && PHI_L2_ADDRESS == 0 && PHI_L1_ADDRESS == 1) {
-			RETURN_ADDRESS = 0x03;
+			return_value = return_value + 0x01;
+			RETURN_ADDRESS = return_value;
 		}
 		while(contador < 21){
 			CLOCK_ADDRESS = 0xFF;
@@ -103,7 +110,8 @@ void main()
 			CLOCK_ADDRESS = 0x00;
 			delay(10);
 			if (PHI_P_ADDRESS == 0 && PHI_R_ADDRESS == 1 && PHI_L2_ADDRESS == 1 && PHI_L1_ADDRESS == 0) {
-			RETURN_ADDRESS = 0x0F;
+			return_value = return_value + 0x01;
+			RETURN_ADDRESS = return_value;
 			}
 			contador = contador + 1; 
 		}
@@ -112,7 +120,8 @@ void main()
 			delay(10);
 			CLOCK_ADDRESS = 0x00;
 			if (PHI_P_ADDRESS == 0 && PHI_R_ADDRESS == 0 && PHI_L2_ADDRESS == 1 && PHI_L1_ADDRESS == 0) {
-			RETURN_ADDRESS = 0x1F;
+			return_value = return_value + 0x01;
+			RETURN_ADDRESS = return_value;
 			}
 			delay(10);
 			contador = contador + 1; 

@@ -154,14 +154,14 @@ signal_generator signal_generator (
     .io_in (io_in),
  //   .io_in_3v3 (io_in_3v3),
     .io_out(io_out),
-    .io_oeb(io_oeb)//,
+    .io_oeb(io_oeb),//,
 
     // // GPIO-analog
-    // .gpio_analog(gpio_analog),
+    //.gpio_analog(gpio_analog),
     // .gpio_noesd(gpio_noesd),
 
     // // Dedicated analog
-    // .io_analog(io_analog),
+    .io_analog(io_analog)
     // .io_clamp_high(io_clamp_high),
     // .io_clamp_low(io_clamp_low),
 

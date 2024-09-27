@@ -111,14 +111,14 @@ module signal_generator #(
     input  [`MPRJ_IO_PADS-`ANALOG_PADS-1:0] io_in,
     //input  [`MPRJ_IO_PADS-`ANALOG_PADS-1:0] io_in_3v3,
     output reg [`MPRJ_IO_PADS-`ANALOG_PADS-1:0] io_out,
-    output [`MPRJ_IO_PADS-`ANALOG_PADS-1:0] io_oeb
+    output [`MPRJ_IO_PADS-`ANALOG_PADS-1:0] io_oeb,
 
     // // GPIO-analog
     // inout [`MPRJ_IO_PADS-`ANALOG_PADS-10:0] gpio_analog,
     // inout [`MPRJ_IO_PADS-`ANALOG_PADS-10:0] gpio_noesd,
 
     // // Dedicated analog
-    // inout [`ANALOG_PADS-1:0] io_analog,
+    inout [`ANALOG_PADS-1:0] io_analog
     // inout [2:0] io_clamp_high,
     // inout [2:0] io_clamp_low,
 
@@ -141,20 +141,48 @@ module signal_generator #(
 
     // "PUERTOS"
     wire         i_test;
-    reg  [4:0]   o_test;
+    reg  [2:0]   o_test;
 
     wire         i_enable;
-    wire   [3:0] i_f_select;
-    wire         i_clk;
+    wire         i_f_select_serial; 
+    wire         i_load_config; 
+    reg   [3:0]  i_f_select;
+    wire         i_clk;   
     reg          o_phi_p;
     reg          o_phi_l1;
     reg          o_phi_l2;
     reg          o_phi_r;
 
-    assign i_test = io_in[7];
-    assign i_clk = io_in[13];
-    assign i_enable = io_in[22];
-    assign i_f_select = io_in[26:23];
+    // PARTE ANALOGICA
+    wire         i_adc_data_p_ch1;
+    wire         i_adc_data_n_ch1;
+    wire         i_adc_data_p_ch2;
+    wire         i_adc_data_n_ch2;
+    reg          o_adc_data_ch1;
+    reg          o_adc_data_ch2;
+    reg          o_conv_finished_ch1;
+    reg          o_conv_finished_ch2;
+    wire         i_load;
+    reg          i_conv_start;
+    wire         i_data_config;
+    wire         i_reset;       
+ 
+
+    //ANALOGICA
+    assign i_adc_data_p_ch1 = io_analog[9];
+    assign i_adc_data_n_ch1 = io_analog[8];
+    assign i_adc_data_p_ch2 = io_analog[7];
+    assign i_adc_data_n_ch2 = io_analog[6];
+    assign i_load           = io_in[18];
+    assign i_data_config    = io_in[19];
+    assign i_reset          = io_in[20];
+
+    // DIGITAL
+    assign i_test = io_in[26];
+    assign i_clk = io_in[25];
+    assign i_enable = io_in[24];
+    assign i_f_select_serial = io_in[23];
+    assign i_load_config = io_in[22];
 
 
     localparam [31:0] MIN_TIEMPO_REQ =   32'h1009;
@@ -165,6 +193,9 @@ module signal_generator #(
     reg [3:0]   f_selected;
     reg [1:0]   estado, sig_estado, ciclos;
     reg pulse_ended;
+
+    reg [3:0]   f_sel_sr;  
+    reg [2:0]   f_sel_bit_counter; 
 
     reg         i_enable_wb;
     reg         i_clk_wb;
@@ -179,6 +210,28 @@ module signal_generator #(
 
     assign  io_oeb = {(`MPRJ_IO_PADS-`ANALOG_PADS){1'b0}};// always enabled
 
+
+    // ASIGNACION DE SERIE A PARALELO DEL SELECTOR DE FRECUENCIAS
+    always @(posedge i_clk_mux ) begin
+        if (~i_enable_mux || (i_test && ~i_test_reg)) begin
+            f_sel_sr <= 4'b0;
+            f_sel_bit_counter <= 4'b0;
+        end
+        else begin
+            if (i_load_config == 1) begin
+                f_sel_sr <= {f_sel_sr[2:0], i_f_select_serial}; // Desplazar un bit
+                f_sel_bit_counter <= f_sel_bit_counter + 1;
+            end
+            
+            if (f_sel_bit_counter == 3'b100) begin
+                i_f_select <= f_sel_sr;
+                f_sel_bit_counter <= 4'b0;
+            end
+        end
+    end
+
+
+  
     // DECODIFICACION DE LOS ESTADOS
     localparam  [1:0] INITIAL_SETUP   = 2'b00;
     localparam  [1:0] SHIFT_CHARGES   = 2'b01;
@@ -197,7 +250,7 @@ module signal_generator #(
         estado = 0;
         sig_estado = 0;
         ciclos = 0;
-        o_test = 5'b0;
+        o_test = 3'b0;
     end
 
 // Actualizar el valor de i_test_reg al final del ciclo de reloj
@@ -333,7 +386,7 @@ always @(posedge wb_clk_i) begin
                     ENABLE_ADDRESS: i_enable_wb <= wbs_dat_i[0];
                     FREQUENCY_ADDRESS: i_f_select_wb <= wbs_dat_i[3:0];
                     CLOCK_ADDRESS: i_clk_wb <= wbs_dat_i[0];
-                    RETURN_ADDRESS: o_test <= wbs_dat_i[4:0];
+                    RETURN_ADDRESS: o_test <= wbs_dat_i[2:0];
                     default: wbs_dat_o <= 32'b0;
                 endcase
             end
@@ -360,21 +413,20 @@ assign i_f_select_mux = i_test ? i_f_select_wb : i_f_select ;
 
     always @(posedge wb_clk_i) begin
         if (wb_rst_i) begin
-            io_out[12:8] <= 0;
+            io_out[9:7] <= 0;
         end 
         else begin
-            io_out[12:8] <= o_test;
+            io_out[9:7] <= o_test;
         end
     end
 
     always @(posedge i_clk_mux) begin
-        io_out[7:0] <= 0;
-        io_out[14:13] <= 0;
-        io_out[15] <= o_phi_l2;
-        io_out[16] <= o_phi_l1;
-        io_out[17] <= o_phi_r;
-        io_out[18] <= o_phi_p;    
-        io_out[26:19] <= 0;
+        io_out[6:0] <= 0;
+        io_out[10] <= o_phi_p; 
+        io_out[11] <= o_phi_l1;
+        io_out[12] <= o_phi_l2;
+        io_out[13] <= o_phi_r;
+        io_out[26:18] <= 0;
     end
 
     always @(posedge wb_clk_i) begin
