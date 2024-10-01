@@ -19,23 +19,25 @@ module analog_signal_generator (
     input wire      i_enable,
     input wire      i_phi_l2,
     input wire      i_phi_p,
-    output reg      o_pixel_flag,
-    output reg      o_ADC_frame
+    output reg      o_adc_start_convertion
 );
 
 reg [2:0] contador_flancos;
+reg o_pixel_flag;
 
-always @(posedge i_phi_l2 or posedge i_phi_p) begin
+always @(negedge i_phi_l2 or posedge i_phi_p) begin
     if (i_phi_p)
         contador_flancos <= 0;
     else if (i_enable)
         contador_flancos <= contador_flancos + 1;
 end
 
-always @(posedge i_phi_p or posedge i_phi_l2) begin
-    if (i_phi_p) begin
-        o_pixel_flag <= (contador_flancos == 5);
-        o_ADC_frame <= i_enable;
+always @(negedge i_phi_l2) begin
+    o_pixel_flag <= (contador_flancos == 5);
+    if(i_phi_l2) begin
+        o_adc_start_convertion <= 0;
+    end else begin
+        o_adc_start_convertion <= o_pixel_flag;
     end
 end
 

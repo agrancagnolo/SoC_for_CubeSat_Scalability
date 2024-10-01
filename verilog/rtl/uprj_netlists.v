@@ -20,12 +20,14 @@
 `ifdef GL
     // Assume default net type to be wire because GL netlists don't have the wire definitions
     `default_nettype wire
-    `include "gl/user_analog_project_wrapper.v"
-    `include "gl/wb_buttons_leds.v"
+    `include "rtl/user_analog_project_wrapper.v"
+    `include "rtl/signal_generator.v"
+    `include "rtl/adc_module.v"
+    `include "rtl/analog_signal_generator.v"
 `else
     `include "user_analog_project_wrapper.v"
     `include "designs_wrapper.v"
     `include "signal_generator.v"
-    `include "signal_selector.v"
+    `include "adc_module.v"
     `include "analog_signal_generator.v"
 `endif

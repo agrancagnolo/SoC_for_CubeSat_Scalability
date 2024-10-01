@@ -73,6 +73,10 @@
  *
  *----------------------------------------------------------------
  */
+
+//`include "adc_module.v"
+//`include "analog_signal_generator.v"
+
 `default_nettype none
 
 module signal_generator #(
@@ -426,6 +430,10 @@ assign i_f_select_mux = i_test ? i_f_select_wb : i_f_select ;
         io_out[11] <= o_phi_l1;
         io_out[12] <= o_phi_l2;
         io_out[13] <= o_phi_r;
+        io_out[14] <= o_adc_data_ch1; 
+        io_out[15] <= o_adc_data_ch2;
+        io_out[16] <= o_conv_finished_ch1;
+        io_out[17] <= o_conv_finished_ch2;
         io_out[26:18] <= 0;
     end
 
@@ -435,5 +443,38 @@ assign i_f_select_mux = i_test ? i_f_select_wb : i_f_select ;
         else
             wbs_ack_o <= (wbs_stb_i && (wbs_adr_i == ENABLE_ADDRESS || wbs_adr_i == FREQUENCY_ADDRESS || wbs_adr_i == CLOCK_ADDRESS || wbs_adr_i == RETURN_ADDRESS || wbs_adr_i == PHI_P_ADDRESS || wbs_adr_i == PHI_L1_ADDRESS || wbs_adr_i == PHI_L2_ADDRESS || wbs_adr_i == PHI_R_ADDRESS));
         end
+
+analog_signal_generator analog_signal_gen0(
+                            .i_enable(i_enable),
+                            .i_phi_l2(o_phi_l2),
+                            .i_phi_p(o_phi_p),
+                            .o_adc_start_convertion(i_conv_start)
+                          );
+
+adc_module  adc1 (
+    .i_adc_data_p(i_adc_data_p_ch1),
+    .i_adc_data_n(i_adc_data_n_ch1),
+    .i_adc_load(i_load),
+    .i_adc_conv_start(i_conv_start),
+    .i_adc_data_config(i_data_config),
+    .i_adc_reset(wb_rst_i),
+    .i_adc_clock(i_clk_mux),
+    .o_adc_data(o_adc_data_ch1),
+    .o_conv_finished(o_conv_finished_ch1)
+);
+
+adc_module  adc2 (
+    .i_adc_data_p(i_adc_data_p_ch2),
+    .i_adc_data_n(i_adc_data_n_ch2),
+    .i_adc_load(i_load),
+    .i_adc_conv_start(i_conv_start),
+    .i_adc_data_config(i_data_config),
+    .i_adc_reset(wb_rst_i),
+    .i_adc_clock(i_clk_mux),
+    .o_adc_data(o_adc_data_ch2),
+    .o_conv_finished(o_conv_finished_ch2)
+);
+
+
 
 endmodule

@@ -1,0 +1,97 @@
+MACRO adc_module
+  CLASS BLOCK ;
+  FOREIGN adc_module ;
+  ORIGIN 0.0 0.0 ;
+  SIZE 50.0 BY 400.0 ;
+  
+  PIN i_adc_data_p
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.20 ;
+    PORT
+      LAYER met3 ;
+      RECT 5.0 5.0 10.0 15.0 ;
+    END
+  END i_adc_data_p
+
+  PIN i_adc_data_n
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.20 ;
+    PORT
+      LAYER met3 ;
+      RECT 5.0 35.0 10.0 45.0 ;
+    END
+  END i_adc_data_n
+
+  PIN i_adc_load
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.20 ;
+    PORT
+      LAYER met3 ;
+      RECT 5.0 65.0 10.0 75.0 ;
+    END
+  END i_adc_load
+
+  PIN i_adc_conv_start
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.20 ;
+    PORT
+      LAYER met3 ;
+      RECT 5.0 95.0 10.0 105.0 ;
+    END
+  END i_adc_conv_start
+
+  PIN i_adc_data_config
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.20 ;
+    PORT
+      LAYER met3 ;
+      RECT 5.0 125.0 10.0 135.0 ;
+    END
+  END i_adc_data_config
+
+  PIN i_adc_reset
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.20 ;
+    PORT
+      LAYER met3 ;
+      RECT 5.0 155.0 10.0 165.0 ;
+    END
+  END i_adc_reset
+
+  PIN i_adc_clock
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.20 ;
+    PORT
+      LAYER met3 ;
+      RECT 5.0 185.0 10.0 195.0 ;
+    END
+  END i_adc_clock
+
+  PIN o_adc_data
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.20 ;
+    PORT
+      LAYER met3 ;
+      RECT 5.0 215.0 10.0 225.0 ;
+    END
+  END o_adc_data
+
+  PIN o_conv_finished
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.20 ;
+    PORT
+      LAYER met3 ;
+      RECT 5.0 245.0 10.0 255.0 ;
+    END
+  END o_conv_finished
+
+END adc_module

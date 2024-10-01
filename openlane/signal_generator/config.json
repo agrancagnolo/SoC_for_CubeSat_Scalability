@@ -3,7 +3,9 @@
     "DESIGN_IS_CORE": 0,
     "VERILOG_FILES": [
         "dir::../../verilog/rtl/defines.v",
-        "dir::../../verilog/rtl/signal_generator.v"
+        "dir::../../verilog/rtl/signal_generator.v",
+        "dir::../../verilog/rtl/analog_signal_generator.v",
+        "dir::../../verilog/rtl/adc_module.v"
     ],
     "CLOCK_PERIOD": 25,
     "CLOCK_PORT": "io_in[13]",
@@ -31,6 +33,7 @@
     ],
     "IO_SYNC": 0,
     "BASE_SDC_FILE": "dir::base_designs_wrapper.sdc",
+    "EXTRA_LEFS" : "dir::../../lef/adc_module.lef",
     "RUN_CVC": 1,
     "pdk::sky130*": {
         "FP_CORE_UTIL": 45,
