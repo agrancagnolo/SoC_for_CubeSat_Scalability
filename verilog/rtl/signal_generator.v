@@ -451,30 +451,96 @@ analog_signal_generator analog_signal_gen0(
                             .o_adc_start_convertion(i_conv_start)
                           );
 
-adc_module  adc1 (
-    .i_adc_data_p(i_adc_data_p_ch1),
-    .i_adc_data_n(i_adc_data_n_ch1),
-    .i_adc_load(i_load),
-    .i_adc_conv_start(i_conv_start),
-    .i_adc_data_config(i_data_config),
-    .i_adc_reset(wb_rst_i),
-    .i_adc_clock(i_clk_mux),
-    .o_adc_data(o_adc_data_ch1),
-    .o_conv_finished(o_conv_finished_ch1)
+// INSTANCIACION ANALOGICA
+wire [15:0] cfg1_1;
+wire [15:0] cfg2_1;
+wire [15:0] res_1;
+wire adc_fin_1;
+wire adc_fin_osr_1;
+
+wire [15:0] cfg1_2;
+wire [15:0] cfg2_2;
+wire [15:0] res_2;
+wire adc_fin_2;
+wire adc_fin_osr_2;
+
+
+adc_bridge adc_bridge1(
+    `ifdef USE_POWER_PINS
+        .VDD(vccd1),
+        .VSS(vssd1),
+    `endif
+    .clk(i_clk_mux),            // clk for shift regs
+    .rst_n(wb_rst_i),          // async. reset for regs
+    .dat_i(i_data_config),          // serial in (ADC config, LSB first)
+    .load(i_load),           // load strobe for shift regs
+    // interface to ADC
+    .adc_res(res_1),        // ADC result input
+    .adc_conv_finished(adc_fin_1),
+    .adc_conv_finished_osr(adc_fin_osr_1),
+    .adc_cfg1(cfg1_1),       // ADC config1 output
+    .adc_cfg2(cfg2_1),       // ADC config2 output
+    // chip outputs
+    .dat_o(o_adc_data_ch1),          // serial out (ADC result, LSB first)
+    .conv_finish(o_conv_finished_ch1),    // flag that conversion is finished
+    .tie1(),           // logic 1 aux. output
+    .tie0()            // logic 2 aux. output
+    );
+
+adc_top  adc1 (
+    `ifdef USE_POWER_PINS
+        .VDD(vccd1),
+        .VSS(vssd1),
+    `endif
+    .clk_vcm(i_clk_mux),
+    .rst_n(wb_rst_i),
+    .inp_analog(i_adc_data_p_ch1),
+    .inn_analog(i_adc_data_n_ch1),
+    .start_conversion_in(i_conv_start),   
+    .config_1_in(cfg1_1),    
+    .config_2_in(cfg2_1),    
+    .result_out(res_1),    
+    .conversion_finished_out(adc_fin_1),
+    .conversion_finished_osr_out(adc_fin_osr_1)
 );
 
-adc_module  adc2 (
-    .i_adc_data_p(i_adc_data_p_ch2),
-    .i_adc_data_n(i_adc_data_n_ch2),
-    .i_adc_load(i_load),
-    .i_adc_conv_start(i_conv_start),
-    .i_adc_data_config(i_data_config),
-    .i_adc_reset(wb_rst_i),
-    .i_adc_clock(i_clk_mux),
-    .o_adc_data(o_adc_data_ch2),
-    .o_conv_finished(o_conv_finished_ch2)
+adc_bridge adc_bridge2(
+    `ifdef USE_POWER_PINS
+        .VDD(vccd1),
+        .VSS(vssd1),
+    `endif
+    .clk(i_clk_mux),            // clk for shift regs
+    .rst_n(wb_rst_i),          // async. reset for regs
+    .dat_i(i_data_config),          // serial in (ADC config, LSB first)
+    .load(i_load),           // load strobe for shift regs
+    // interface to ADC
+    .adc_res(res_2),        // ADC result input
+    .adc_conv_finished(adc_fin_2),
+    .adc_conv_finished_osr(adc_fin_osr_2),
+    .adc_cfg1(cfg1_2),       // ADC config1 output
+    .adc_cfg2(cfg2_2),       // ADC config2 output
+    // chip outputs
+    .dat_o(o_adc_data_ch2),          // serial out (ADC result, LSB first)
+    .conv_finish(o_conv_finished_ch2),    // flag that conversion is finished
+    .tie1(),           // logic 1 aux. output
+    .tie0()            // logic 2 aux. output
+    );
+
+adc_top  adc2 (
+    `ifdef USE_POWER_PINS
+        .VDD(vccd1),
+        .VSS(vssd1),
+    `endif
+    .clk_vcm(i_clk_mux),
+    .rst_n(wb_rst_i),
+    .inp_analog(i_adc_data_p_ch2),
+    .inn_analog(i_adc_data_n_ch2),
+    .start_conversion_in(i_conv_start),   
+    .config_1_in(cfg1_2),    
+    .config_2_in(cfg2_2),    
+    .result_out(res_2),    
+    .conversion_finished_out(adc_fin_2),
+    .conversion_finished_osr_out(adc_fin_osr_2)
 );
-
-
 
 endmodule

@@ -5,17 +5,44 @@
         "dir::../../verilog/rtl/defines.v",
         "dir::../../verilog/rtl/signal_generator.v",
         "dir::../../verilog/rtl/analog_signal_generator.v",
-        "dir::../../verilog/rtl/adc_module.v"
+        "dir::../../verilog/rtl/adc_bridge.v"
     ],
     "CLOCK_PERIOD": 25,
     "CLOCK_PORT": "io_in[13]",
     "CLOCK_NET": "io_in[13]",
     "FP_SIZING": "absolute",
-    "DIE_AREA": "0 0 2000 900",
+    "DIE_AREA": "0 0 2000 1500",
     "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
+    "FP_PDN_MACRO_HOOKS": [
+        "adc1 vccd1 vssd1 vccd1 vssd1",
+        "adc2 vccd1 vssd1 vccd1 vssd1"
+    ],
+    "MACRO_PLACE_HALO": "5 5",
+    "MACRO_PLACE_CHANNEL": "2 2",
+    "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
+    "VERILOG_FILES_BLACKBOX": [
+        "dir::../../verilog/gl/adc_top.v",
+        "dir::../../verilog/rtl/sky130_fd_sc_hd.v",
+        "dir::../../verilog/rtl/adc_core_digital.v",
+        "dir::../../verilog/rtl/adc_control_nonbinary.v",
+        "dir::../../verilog/rtl/adc_row_col_decoder.v",
+        "dir::../../verilog/rtl/adc_osr.v",
+        "dir::/macros/blackbox/adc_clkgen_with_edgedetect.v",
+        "dir::/macros/blackbox/adc_array_matrix_12bit.v",
+        "dir::/macros/blackbox/adc_comp_latch.v",
+        "dir::/macros/blackbox/adc_vcm_generator.v",
+        "dir::/macros/blackbox/scboundary.v"
+    ],
+    "EXTRA_LEFS": [
+        "dir::../../lef/adc_top.lef" 
+    ],
+    "EXTRA_GDS_FILES": [
+        "dir::../../gds/adc_top.gds.gz"
+    ],
     "MAX_TRANSITION_CONSTRAINT": 1.0,
     "MAX_FANOUT_CONSTRAINT": 16,
     "PL_TARGET_DENSITY": 0.55,
+    "PL_MAX_ITER": 5000,
     "PL_RESIZER_SETUP_SLACK_MARGIN": 0.4,
     "GLB_RESIZER_SETUP_SLACK_MARGIN": 0.2,
     "GLB_RESIZER_HOLD_SLACK_MARGIN": 0.2,
@@ -33,7 +60,6 @@
     ],
     "IO_SYNC": 0,
     "BASE_SDC_FILE": "dir::base_designs_wrapper.sdc",
-    "EXTRA_LEFS" : "dir::../../lef/adc_module.lef",
     "RUN_CVC": 1,
     "pdk::sky130*": {
         "FP_CORE_UTIL": 45,
