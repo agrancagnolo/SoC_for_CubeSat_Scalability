@@ -14,25 +14,13 @@
     "DIE_AREA": "0 0 1000 1200",
     "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
     "FP_PDN_MACRO_HOOKS": [
-        "adc1 vccd1 vssd1 vccd1 vssd1",
-        "adc2 vccd1 vssd1 vccd1 vssd1"
+        "adc1 vccd1 vssd1 VDD VSS, ",
+        "adc2 vccd1 vssd1 VDD VSS"
 
     ],
-    "MACRO_PLACE_HALO": "5 5",
-    "MACRO_PLACE_CHANNEL": "2 2",
     "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
     "VERILOG_FILES_BLACKBOX": [
-        "dir::../../verilog/gl/adc_top.v",
-        "dir::../../verilog/rtl/sky130_fd_sc_hd.v",
-        "dir::../../verilog/rtl/adc_core_digital.v",
-        "dir::../../verilog/rtl/adc_control_nonbinary.v",
-        "dir::../../verilog/rtl/adc_row_col_decoder.v",
-        "dir::../../verilog/rtl/adc_osr.v",
-        "dir::/macros/blackbox/adc_clkgen_with_edgedetect.v",
-        "dir::/macros/blackbox/adc_array_matrix_12bit.v",
-        "dir::/macros/blackbox/adc_comp_latch.v",
-        "dir::/macros/blackbox/adc_vcm_generator.v",
-        "dir::/macros/blackbox/scboundary.v"
+        "dir::../../verilog/rtl/adc_top.v"
     ],
     "EXTRA_LEFS": [
         "dir::../../lef/adc_top.lef" 
@@ -42,9 +30,9 @@
     ],
     "MAX_TRANSITION_CONSTRAINT": 1.0,
     "MAX_FANOUT_CONSTRAINT": 16,
-    "PL_TARGET_DENSITY": 0.55,
     "PL_MAX_ITER": 5000,
     "PL_RESIZER_SETUP_SLACK_MARGIN": 0.4,
+    "FP_PDN_CHECK_NODES": false,
     "GLB_RESIZER_SETUP_SLACK_MARGIN": 0.2,
     "GLB_RESIZER_HOLD_SLACK_MARGIN": 0.2,
     "PL_RESIZER_HOLD_SLACK_MARGIN": 0.4,

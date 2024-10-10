@@ -466,10 +466,6 @@ wire adc_fin_osr_2;
 
 
 adc_bridge adc_bridge1(
-    `ifdef USE_POWER_PINS
-        .VDD(vccd1),
-        .VSS(vssd1),
-    `endif
     .clk(i_clk_mux),            // clk for shift regs
     .rst_n(wb_rst_i),          // async. reset for regs
     .dat_i(i_data_config),          // serial in (ADC config, LSB first)
@@ -505,10 +501,6 @@ adc_top  adc1 (
 );
 
 adc_bridge adc_bridge2(
-    `ifdef USE_POWER_PINS
-        .VDD(vccd1),
-        .VSS(vssd1),
-    `endif
     .clk(i_clk_mux),            // clk for shift regs
     .rst_n(wb_rst_i),          // async. reset for regs
     .dat_i(i_data_config),          // serial in (ADC config, LSB first)
