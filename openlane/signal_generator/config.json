@@ -1,6 +1,6 @@
 {
     "DESIGN_NAME": "signal_generator",
-    "DESIGN_IS_CORE": 0,
+    "DESIGN_IS_CORE": 1,
     "VERILOG_FILES": [
         "dir::../../verilog/rtl/defines.v",
         "dir::../../verilog/rtl/signal_generator.v",
@@ -11,12 +11,11 @@
     "CLOCK_PORT": "io_in[13]",
     "CLOCK_NET": "io_in[13]",
     "FP_SIZING": "absolute",
-    "DIE_AREA": "0 0 1000 1200",
+    "DIE_AREA": "0 0 1200 1200",
     "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
     "FP_PDN_MACRO_HOOKS": [
         "adc1 vccd1 vssd1 VDD VSS, ",
         "adc2 vccd1 vssd1 VDD VSS"
-
     ],
     "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
     "VERILOG_FILES_BLACKBOX": [
@@ -43,6 +42,27 @@
     "HEURISTIC_ANTENNA_THRESHOLD": 110,  
     "SYNTH_USE_PG_PINS_DEFINES": "USE_POWER_PINS",
     "LVS_CONNECT_BY_LABEL": 1,  
+    "DIODE_INSERTION_STRATEGY": 4,
+    "FP_PDN_ENABLE_MACROS_GRID": 1,
+
+    "FP_PDN_MULTILAYER": true,
+    "FP_PDN_CORE_RING": true,
+    "FP_PDN_CORE_RING_VWIDTH": 3,
+    "FP_PDN_CORE_RING_HWIDTH": "expr::$FP_PDN_CORE_RING_VWIDTH",
+    "FP_PDN_CORE_RING_VOFFSET": 7,
+    "FP_PDN_CORE_RING_HOFFSET": "expr::$FP_PDN_CORE_RING_VOFFSET",
+    "FP_PDN_CORE_RING_VSPACING": 1.7,
+    "FP_PDN_CORE_RING_HSPACING": "expr::$FP_PDN_CORE_RING_VSPACING",
+    "FP_PDN_VSPACING": "expr::5*$FP_PDN_CORE_RING_VWIDTH",
+    "FP_PDN_HSPACING": "expr::5*$FP_PDN_CORE_RING_HWIDTH",
+    "FP_PDN_VWIDTH": 2,
+    "FP_PDN_HWIDTH": 2,
+    "FP_PDN_VOFFSET": 0,
+    "FP_PDN_HOFFSET": "expr::$FP_PDN_VOFFSET",
+    "FP_PDN_VPITCH": 90,
+    "FP_PDN_HPITCH": "expr::$FP_PDN_VPITCH",
+
+
     "GRT_REPAIR_ANTENNAS": 1,
     "VDD_NETS": [
         "vccd1"

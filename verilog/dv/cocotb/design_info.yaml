@@ -1,8 +1,8 @@
-CARAVEL_ROOT: /home/celina/test_mixer/caravel
-MCW_ROOT: /home/celina/test_mixer/mgmt_core_wrapper
+CARAVEL_ROOT: /home/ivogc/tesis/repositories/SoC_cubesats/caravel
+MCW_ROOT: /home/ivogc/tesis/repositories/SoC_cubesats/mgmt_core_wrapper
 PDK: sky130A
-PDK_ROOT: /home/celina/test_mixer/dependencies/pdks
-USER_PROJECT_ROOT: /home/celina/test_mixer
+PDK_ROOT: /home/ivogc/tesis/repositories/SoC_cubesats/dependencies/pdks
+USER_PROJECT_ROOT: /home/ivogc/tesis/repositories/SoC_cubesats
 caravan: false
 clk: 25
 emailto:
