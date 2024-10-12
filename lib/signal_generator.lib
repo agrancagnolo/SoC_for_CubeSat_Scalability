@@ -89,15 +89,15 @@ library (signal_generator) {
     }
     pin("wb_rst_i") {
       direction : input;
-      capacitance : 0.0047;
+      capacitance : 0.0095;
     }
     pin("wbs_ack_o") {
       direction : output;
-      capacitance : 0.0014;
+      capacitance : 0.0016;
     }
     pin("wbs_cyc_i") {
       direction : input;
-      capacitance : 0.0039;
+      capacitance : 0.0035;
     }
     pin("wbs_stb_i") {
       direction : input;
@@ -117,19 +117,19 @@ library (signal_generator) {
     }
     pin("io_analog[9]") {
       direction : inout;
-      capacitance : 0.0854;
+      capacitance : 0.2090;
     }
     pin("io_analog[8]") {
       direction : inout;
-      capacitance : 0.0885;
+      capacitance : 0.1887;
     }
     pin("io_analog[7]") {
       direction : inout;
-      capacitance : 0.1321;
+      capacitance : 0.0000;
     }
     pin("io_analog[6]") {
       direction : inout;
-      capacitance : 0.1611;
+      capacitance : 0.0000;
     }
     pin("io_analog[5]") {
       direction : inout;
@@ -178,7 +178,7 @@ library (signal_generator) {
     }
     pin("io_in[22]") {
       direction : input;
-      capacitance : 0.0092;
+      capacitance : 0.0068;
     }
     pin("io_in[21]") {
       direction : input;
@@ -194,7 +194,7 @@ library (signal_generator) {
     }
     pin("io_in[18]") {
       direction : input;
-      capacitance : 0.0040;
+      capacitance : 0.0045;
     }
     pin("io_in[17]") {
       direction : input;
@@ -331,7 +331,7 @@ library (signal_generator) {
     }
     pin("io_oeb[12]") {
       direction : output;
-      capacitance : 0.0005;
+      capacitance : 0.0007;
     }
     pin("io_oeb[11]") {
       direction : output;
@@ -359,7 +359,7 @@ library (signal_generator) {
     }
     pin("io_oeb[5]") {
       direction : output;
-      capacitance : 0.0006;
+      capacitance : 0.0005;
     }
     pin("io_oeb[4]") {
       direction : output;
@@ -440,7 +440,7 @@ library (signal_generator) {
     }
     pin("io_out[13]") {
       direction : output;
-      capacitance : 0.0006;
+      capacitance : 0.0008;
     }
     pin("io_out[12]") {
       direction : output;
@@ -501,7 +501,7 @@ library (signal_generator) {
       capacitance : 0.0000;
     pin("wbs_adr_i[31]") {
       direction : input;
-      capacitance : 0.0040;
+      capacitance : 0.0041;
     }
     pin("wbs_adr_i[30]") {
       direction : input;
@@ -513,7 +513,7 @@ library (signal_generator) {
     }
     pin("wbs_adr_i[28]") {
       direction : input;
-      capacitance : 0.0041;
+      capacitance : 0.0040;
     }
     pin("wbs_adr_i[27]") {
       direction : input;
@@ -529,7 +529,7 @@ library (signal_generator) {
     }
     pin("wbs_adr_i[24]") {
       direction : input;
-      capacitance : 0.0041;
+      capacitance : 0.0040;
     }
     pin("wbs_adr_i[23]") {
       direction : input;
@@ -545,7 +545,7 @@ library (signal_generator) {
     }
     pin("wbs_adr_i[20]") {
       direction : input;
-      capacitance : 0.0041;
+      capacitance : 0.0040;
     }
     pin("wbs_adr_i[19]") {
       direction : input;
@@ -557,7 +557,7 @@ library (signal_generator) {
     }
     pin("wbs_adr_i[17]") {
       direction : input;
-      capacitance : 0.0040;
+      capacitance : 0.0039;
     }
     pin("wbs_adr_i[16]") {
       direction : input;
@@ -565,7 +565,7 @@ library (signal_generator) {
     }
     pin("wbs_adr_i[15]") {
       direction : input;
-      capacitance : 0.0041;
+      capacitance : 0.0040;
     }
     pin("wbs_adr_i[14]") {
       direction : input;
@@ -577,7 +577,7 @@ library (signal_generator) {
     }
     pin("wbs_adr_i[12]") {
       direction : input;
-      capacitance : 0.0044;
+      capacitance : 0.0043;
     }
     pin("wbs_adr_i[11]") {
       direction : input;
@@ -589,7 +589,7 @@ library (signal_generator) {
     }
     pin("wbs_adr_i[9]") {
       direction : input;
-      capacitance : 0.0041;
+      capacitance : 0.0043;
     }
     pin("wbs_adr_i[8]") {
       direction : input;
@@ -597,7 +597,7 @@ library (signal_generator) {
     }
     pin("wbs_adr_i[7]") {
       direction : input;
-      capacitance : 0.0042;
+      capacitance : 0.0041;
     }
     pin("wbs_adr_i[6]") {
       direction : input;
@@ -605,15 +605,15 @@ library (signal_generator) {
     }
     pin("wbs_adr_i[5]") {
       direction : input;
-      capacitance : 0.0037;
+      capacitance : 0.0036;
     }
     pin("wbs_adr_i[4]") {
       direction : input;
-      capacitance : 0.0042;
+      capacitance : 0.0041;
     }
     pin("wbs_adr_i[3]") {
       direction : input;
-      capacitance : 0.0059;
+      capacitance : 0.0061;
     }
     pin("wbs_adr_i[2]") {
       direction : input;
@@ -746,7 +746,7 @@ library (signal_generator) {
     }
     pin("wbs_dat_i[3]") {
       direction : input;
-      capacitance : 0.0039;
+      capacitance : 0.0035;
     }
     pin("wbs_dat_i[2]") {
       direction : input;
@@ -754,11 +754,11 @@ library (signal_generator) {
     }
     pin("wbs_dat_i[1]") {
       direction : input;
-      capacitance : 0.0042;
+      capacitance : 0.0041;
     }
     pin("wbs_dat_i[0]") {
       direction : input;
-      capacitance : 0.0039;
+      capacitance : 0.0041;
     }
     }
     bus("wbs_dat_o") {
@@ -815,7 +815,7 @@ library (signal_generator) {
     }
     pin("wbs_dat_o[19]") {
       direction : output;
-      capacitance : 0.0009;
+      capacitance : 0.0010;
     }
     pin("wbs_dat_o[18]") {
       direction : output;
@@ -839,7 +839,7 @@ library (signal_generator) {
     }
     pin("wbs_dat_o[13]") {
       direction : output;
-      capacitance : 0.0009;
+      capacitance : 0.0010;
     }
     pin("wbs_dat_o[12]") {
       direction : output;
@@ -875,7 +875,7 @@ library (signal_generator) {
     }
     pin("wbs_dat_o[4]") {
       direction : output;
-      capacitance : 0.0010;
+      capacitance : 0.0009;
     }
     pin("wbs_dat_o[3]") {
       direction : output;

@@ -490,8 +490,8 @@ adc_top  adc1 (
     `endif
     .clk_vcm(i_clk_mux),
     .rst_n(wb_rst_i),
-    .inp_analog(i_adc_data_p_ch1),
-    .inn_analog(i_adc_data_n_ch1),
+    .inp_analog(i_adc_data_p_ch1_buff),
+    .inn_analog(i_adc_data_n_ch1_buff),
     .start_conversion_in(i_conv_start),   
     .config_1_in(cfg1_1),    
     .config_2_in(cfg2_1),    
@@ -525,14 +525,64 @@ adc_top  adc2 (
     `endif
     .clk_vcm(i_clk_mux),
     .rst_n(wb_rst_i),
-    .inp_analog(i_adc_data_p_ch2),
-    .inn_analog(i_adc_data_n_ch2),
+    .inp_analog(i_adc_data_p_ch2_buff),
+    .inn_analog(i_adc_data_n_ch2_buff),
     .start_conversion_in(i_conv_start),   
     .config_1_in(cfg1_2),    
     .config_2_in(cfg2_2),    
     .result_out(res_2),    
     .conversion_finished_out(adc_fin_2),
     .conversion_finished_osr_out(adc_fin_osr_2)
+);
+
+wire i_adc_data_p_ch1_buff;
+wire i_adc_data_n_ch1_buff;
+wire i_adc_data_p_ch2_buff;
+wire i_adc_data_n_ch2_buff;
+
+
+sky130_ef_ip__opamp buffer1_p (
+    `ifdef USE_POWER_PINS
+        .vss(vccd1),
+        .vss(vssd1),
+    `endif
+    .inp(i_adc_data_p_ch1),
+    .inn(i_adc_data_p_ch1_buff),
+    .ena(1'b1),
+    .out(i_adc_data_p_ch1_buff)
+);
+
+sky130_ef_ip__opamp buffer1_n (
+    `ifdef USE_POWER_PINS
+        .vss(vccd1),
+        .vss(vssd1),
+    `endif
+    .inp(i_adc_data_n_ch1),
+    .inn(i_adc_data_n_ch1_buff),
+    .ena(1'b1),
+    .out(i_adc_data_n_ch1_buff)
+);
+
+sky130_ef_ip__opamp buffer2_p (
+    `ifdef USE_POWER_PINS
+        .vss(vccd1),
+        .vss(vssd1),
+    `endif
+    .inn(i_adc_data_p_ch2),
+    .inp(i_adc_data_p_ch2_buff),
+    .ena(1'b1),
+    .out(i_adc_data_p_ch2_buff)
+);
+
+sky130_ef_ip__opamp buffer2_n (
+    `ifdef USE_POWER_PINS
+        .vss(vccd1),
+        .vss(vssd1),
+    `endif
+    .inn(i_adc_data_n_ch2),
+    .inp(i_adc_data_n_ch2_buff),
+    .ena(1'b1),
+    .out(i_adc_data_n_ch2_buff)
 );
 
 endmodule

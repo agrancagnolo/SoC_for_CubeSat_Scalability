@@ -6,6 +6,7 @@
         "dir::../../verilog/rtl/signal_generator.v",
         "dir::../../verilog/rtl/analog_signal_generator.v",
         "dir::../../verilog/rtl/adc_bridge.v"
+        
     ],
     "CLOCK_PERIOD": 25,
     "CLOCK_PORT": "io_in[13]",
@@ -15,17 +16,26 @@
     "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
     "FP_PDN_MACRO_HOOKS": [
         "adc1 vccd1 vssd1 VDD VSS, ",
-        "adc2 vccd1 vssd1 VDD VSS"
+        "adc2 vccd1 vssd1 VDD VSS, ",
+        "buffer1_p vccd1 vssd1 vdd vss, ",
+        "buffer1_n vccd1 vssd1 vdd vss, ",
+        "buffer2_p vccd1 vssd1 vdd vss, ",
+        "buffer2_n vccd1 vssd1 vdd vss"
     ],
     "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
     "VERILOG_FILES_BLACKBOX": [
-        "dir::../../verilog/rtl/adc_top.v"
+        "dir::../../verilog/rtl/adc_top.v",
+        "dir::../../verilog/rtl/sky130_ef_ip__opamp.v"
     ],
     "EXTRA_LEFS": [
-        "dir::../../lef/adc_top.lef" 
+        "dir::../../lef/adc_top.lef",
+        "dir::../../lef/sky130_ef_ip__opamp.lef"
+
     ],
     "EXTRA_GDS_FILES": [
-        "dir::../../gds/adc_top.gds.gz"
+        "dir::../../gds/adc_top.gds.gz",
+        "dir::../../gds/sky130_ef_ip__opamp.gds"
+
     ],
     "MAX_TRANSITION_CONSTRAINT": 1.0,
     "MAX_FANOUT_CONSTRAINT": 16,
@@ -59,7 +69,7 @@
     "FP_PDN_HWIDTH": 2,
     "FP_PDN_VOFFSET": 0,
     "FP_PDN_HOFFSET": "expr::$FP_PDN_VOFFSET",
-    "FP_PDN_VPITCH": 90,
+    "FP_PDN_VPITCH": 65,
     "FP_PDN_HPITCH": "expr::$FP_PDN_VPITCH",
 
 
@@ -71,7 +81,7 @@
         "vssd1"
     ],
     "IO_SYNC": 0,
-    "BASE_SDC_FILE": "dir::base_designs_wrapper.sdc",
+    "BASE_SDC_FILE": "dir::base_signal_generator.sdc",
     "RUN_CVC": 1,
     "pdk::sky130*": {
         "FP_CORE_UTIL": 45,
