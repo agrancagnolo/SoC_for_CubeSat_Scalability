@@ -30,4 +30,5 @@
     `include "signal_generator.v"
     `include "adc_module.v"
     `include "analog_signal_generator.v"
+    `include "buffer_analog.v"
 `endif
