@@ -13,37 +13,30 @@
 // limitations under the License.
 // SPDX-License-Identifier: Apache-2.0
 
-`timescale 1ns/1ps
+`default_nettype wire 
 
-module analog_signal_generator (
-    input wire      i_enable,
-    input wire      i_phi_l2,
-    input wire      i_phi_p,
-    output reg      o_adc_start_convertion
+module analog_signal_generator #(
+    parameter       CICLOS_FORMAS_DE_ONDA = 8)
+(   input wire      i_enable,
+    input wire [31:0]  contador,
+    input wire      i_clock, 
+    output reg      o_adc_start_conversion
 );
 
-reg [2:0] contador_flancos;
-reg o_pixel_flag;
+wire o_pixel_flag;
+//FLAG DE GENERACION DE PULSOS DE CONVERISON
+assign o_pixel_flag = ((contador >= CICLOS_FORMAS_DE_ONDA*5) && (contador< 2053*CICLOS_FORMAS_DE_ONDA));
 
-always @(negedge i_phi_l2 or posedge i_phi_p) begin
-    if (i_phi_p)
-        contador_flancos <= 0;
-    else if (i_enable)
-        contador_flancos <= contador_flancos + 1;
-end
-
-always @(negedge i_phi_l2) begin
-    o_pixel_flag <= (contador_flancos == 5);
-    if(i_phi_l2) begin
-        o_adc_start_convertion <= 0;
-    end else begin
-        o_adc_start_convertion <= o_pixel_flag;
+//GENERACION SINCRONICA DEL PULSO
+always @(posedge i_clock) begin
+    if (~i_enable)
+        o_adc_start_conversion = 0;
+    else if(o_pixel_flag) begin
+        o_adc_start_conversion = ~o_adc_start_conversion;
     end
 end
-
 endmodule
 
 `default_nettype wire
-
 
 

@@ -1,79 +1,79 @@
 Step 1:  Create new cells for new GPIO default vectors.
-Creating new layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_1803.mag
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_1803.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_1803.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_1803.v already exists and does not need to be generated.
-Creating new layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Creating new layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0801.mag
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0801.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Creating new layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0402.mag
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0402.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0402.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Creating new layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_1808.mag
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
-Layout file /home/jona/Desktop/Repositorio_LAB/test_mixer/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
-Gate-level verilog file /home/jona/Desktop/Repositorio_LAB/test_mixer/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Creating new layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1803.mag
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1803.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1803.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1803.v already exists and does not need to be generated.
+Creating new layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Creating new layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0801.mag
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0801.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Creating new layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0402.mag
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0402.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
+Creating new layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1808.mag
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1808.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1808.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1808.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1808.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1808.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1808.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1808.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1808.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1808.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_1808.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_1808.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0403.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0403.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0402.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0402.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0402.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0402.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0402.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0402.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0402.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
+Layout file /home/celina/SoC_for_CubeSat/mag/gpio_defaults_block_0402.mag already exists and does not need to be generated.
+Gate-level verilog file /home/celina/SoC_for_CubeSat/verilog/gl/gpio_defaults_block_0402.v already exists and does not need to be generated.
 Step 2:  Modify top-level layouts to use the specified defaults.
 Done.

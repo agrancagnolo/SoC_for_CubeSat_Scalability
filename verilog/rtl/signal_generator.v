@@ -189,13 +189,22 @@ module signal_generator #(
     assign i_load_config = io_in[22];
 
 
-    localparam [31:0] MIN_TIEMPO_REQ =   32'h1009;
+     // LOCALPARAM 
+    localparam MIN_TIEMPO_REQ =   CICLOS_FORMAS_DE_ONDA * 2052+PHI_P_WIDTH;
+    localparam CICLOS_FORMAS_DE_ONDA =   8;
+    localparam CICLOS_PHI_L =   CICLOS_FORMAS_DE_ONDA/2;
+    localparam CICLOS_PHI_R =   CICLOS_FORMAS_DE_ONDA/4;
+
+
+    
 
     // REGISTROS INTERNOS
     reg [31:0]  contador;
     reg [13:0]  contador_waves;
     reg [3:0]   f_selected;
-    reg [1:0]   estado, sig_estado, ciclos;
+    reg [1:0]   estado; 
+    reg [1:0]   sig_estado;
+    reg [$clog2(CICLOS_FORMAS_DE_ONDA):0] ciclos;
     reg pulse_ended;
 
     reg [3:0]   f_sel_sr;  
@@ -211,9 +220,7 @@ module signal_generator #(
 
     reg i_test_reg;
 
-
     assign  io_oeb = {(`MPRJ_IO_PADS-`ANALOG_PADS){1'b0}};// always enabled
-
 
     // ASIGNACION DE SERIE A PARALELO DEL SELECTOR DE FRECUENCIAS
     always @(posedge i_clk_mux ) begin
@@ -234,14 +241,12 @@ module signal_generator #(
         end
     end
 
-
-  
     // DECODIFICACION DE LOS ESTADOS
     localparam  [1:0] INITIAL_SETUP   = 2'b00;
     localparam  [1:0] SHIFT_CHARGES   = 2'b01;
     localparam  [1:0] HOLD_CAPTURE    = 2'b10;
     localparam  [1:0] PULSE_HPND      = 2'b11;
-    localparam  PHI_P_WIDTH		  = 18;	
+    localparam  PHI_P_WIDTH	      = 4;	
 
     initial begin
         o_phi_r = 0;
@@ -274,8 +279,8 @@ end
 always @(posedge i_clk_mux) begin
     if (~i_enable_mux || (i_test && ~i_test_reg))  // Resetear en flanco de i_test
         pulse_ended <= 0;
-    else if (estado == PULSE_HPND  & sig_estado == SHIFT_CHARGES)
-        pulse_ended <= ~pulse_ended;
+    else if ((estado == PULSE_HPND)  && (sig_estado == SHIFT_CHARGES))
+        pulse_ended <= 1;
     else
         pulse_ended <= 0;    
 end
@@ -284,7 +289,7 @@ end
 always @(posedge i_clk_mux) begin
     if (~i_enable_mux || (i_test && ~i_test_reg))  // Resetear contador
         contador <= 0;
-    else if (pulse_ended)
+    else if ((estado == PULSE_HPND)  && (sig_estado == SHIFT_CHARGES))
         contador <= 0;
     else
         contador <= contador + 1;
@@ -294,7 +299,7 @@ end
 always @(posedge i_clk_mux) begin
     if (~i_enable_mux || (i_test && ~i_test_reg))  // Resetear contador de ciclos
         ciclos <= 0;
-    else if ((ciclos < 3) & (estado == SHIFT_CHARGES))
+    else if ((ciclos < (CICLOS_FORMAS_DE_ONDA-1)) & (estado == SHIFT_CHARGES))
         ciclos <= ciclos + 1;
     else  
         ciclos <= 0;
@@ -306,9 +311,12 @@ always @(posedge i_clk_mux) begin
         contador_waves <= 0;
     else if (estado == PULSE_HPND)
         contador_waves <= 0;
-    else if (ciclos == 3)
+    else if (ciclos == CICLOS_FORMAS_DE_ONDA-1)
         contador_waves <= contador_waves + 1;
 end
+
+
+//MAQUINA DE ESTADOS FINITOS 
 
 // TRANSICIÓN SINCRÓNICA DE ESTADO
 always @(posedge i_clk_mux) begin
@@ -341,7 +349,7 @@ always @(*) begin
             sig_estado = PULSE_HPND;  
     end
     PULSE_HPND: begin
-        if ( contador <= (MIN_TIEMPO_REQ + (f_selected * PASO_DEF ) + 4*PHI_P_WIDTH )) // PHI_P_WIDTH  >  320ns
+        if ( contador <= (MIN_TIEMPO_REQ + (f_selected * PASO_DEF ) + PHI_P_WIDTH)) // PHI_P_WIDTH  >  320ns
             sig_estado = PULSE_HPND;
         else 
             sig_estado = SHIFT_CHARGES;  
@@ -350,21 +358,21 @@ always @(*) begin
 end
 
 always @(*) begin
-    if ((estado==SHIFT_CHARGES && ciclos==2) || (estado==PULSE_HPND) ||(estado==INITIAL_SETUP))
+    if ((estado==SHIFT_CHARGES && ciclos>=CICLOS_PHI_L  && ciclos <CICLOS_PHI_L+CICLOS_PHI_R) || (estado==PULSE_HPND) ||(estado==INITIAL_SETUP))
         o_phi_r =1;
     else 
         o_phi_r =0;    
 end
 
 always @(*) begin
-    if ((estado==SHIFT_CHARGES && (ciclos==2 || ciclos==3)) | (estado==PULSE_HPND) ||(estado==INITIAL_SETUP))
+    if ((estado==SHIFT_CHARGES && (ciclos>=CICLOS_PHI_L)) | (estado==PULSE_HPND) ||(estado==INITIAL_SETUP))
         o_phi_l2 =1;
     else 
         o_phi_l2 =0;    
 end
 
 always @(*) begin
-    if ((estado==SHIFT_CHARGES && (ciclos==0 || ciclos==1)) )
+    if ((estado==SHIFT_CHARGES && (ciclos<CICLOS_PHI_L)) )
         o_phi_l1 =1;
     else 
         o_phi_l1 =0;    
@@ -444,12 +452,13 @@ assign i_f_select_mux = i_test ? i_f_select_wb : i_f_select ;
             wbs_ack_o <= (wbs_stb_i && (wbs_adr_i == ENABLE_ADDRESS || wbs_adr_i == FREQUENCY_ADDRESS || wbs_adr_i == CLOCK_ADDRESS || wbs_adr_i == RETURN_ADDRESS || wbs_adr_i == PHI_P_ADDRESS || wbs_adr_i == PHI_L1_ADDRESS || wbs_adr_i == PHI_L2_ADDRESS || wbs_adr_i == PHI_R_ADDRESS));
         end
 
-analog_signal_generator analog_signal_gen0(
-                            .i_enable(i_enable),
-                            .i_phi_l2(o_phi_l2),
-                            .i_phi_p(o_phi_p),
-                            .o_adc_start_convertion(i_conv_start)
-                          );
+analog_signal_generator #(.CICLOS_FORMAS_DE_ONDA(CICLOS_FORMAS_DE_ONDA))
+     analog_signal_gen0 (
+        .i_enable(i_enable_mux),
+        .i_clock(i_clk_mux),
+        .contador(contador), 
+        .o_adc_start_conversion(i_conv_start)
+    );
 
 // INSTANCIACION ANALOGICA
 wire [15:0] cfg1_1;
