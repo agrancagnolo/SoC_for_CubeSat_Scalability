@@ -56,10 +56,6 @@ void main()
 	reg_mprj_io_9  =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[2]
 	reg_mprj_io_8  =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[1]
 	reg_mprj_io_7  =  GPIO_MODE_USER_STD_OUTPUT; 		// test_out[0]
-	reg_mprj_io_25 =  GPIO_MODE_USER_STD_OUTPUT; 		// adc_data_ch1
-	reg_mprj_io_26 =  GPIO_MODE_USER_STD_OUTPUT; 		// adc_data_ch2
-	reg_mprj_io_27 =  GPIO_MODE_USER_STD_OUTPUT; 		// conv_finished_ch1
-	reg_mprj_io_28 =  GPIO_MODE_USER_STD_OUTPUT; 		// conv_finished_ch2
 
 	// Set UART clock to 64 kbaud (enable before I/O configuration)
 	// reg_uart_clkdiv = 625;
@@ -82,7 +78,7 @@ void main()
 	
 	while(1)
 	{
-		while(contador < 9){ // 150us 
+		while(contador < 2){ // 500ns 
 			CLOCK_ADDRESS = 0xFF;
 			delay(10);
 			CLOCK_ADDRESS = 0x00;
@@ -93,7 +89,7 @@ void main()
 			return_value = return_value + 0x01;
 			RETURN_ADDRESS = return_value;
 		}
-		while(contador < 19){ //300us + 
+		while(contador < 6){ //1.5us
 			CLOCK_ADDRESS = 0xFF;
 			delay(10);
 			CLOCK_ADDRESS = 0x00;
@@ -104,7 +100,7 @@ void main()
 			return_value = return_value + 0x01;
 			RETURN_ADDRESS = return_value;
 		}
-		while(contador < 21){
+		while(contador < 9){ //2.25us
 			CLOCK_ADDRESS = 0xFF;
 			delay(10);
 			CLOCK_ADDRESS = 0x00;
@@ -115,7 +111,7 @@ void main()
 			}
 			contador = contador + 1; 
 		}
-		while(contador < 22){
+		while(contador < 11){ //2.75us
 			CLOCK_ADDRESS = 0xFF;
 			delay(10);
 			CLOCK_ADDRESS = 0x00;
@@ -126,7 +122,7 @@ void main()
 			delay(10);
 			contador = contador + 1; 
 		}
-		while(contador < 25){
+		while(contador < 15){ //3.75us
 			CLOCK_ADDRESS = 0xFF;
 			delay(10);
 			CLOCK_ADDRESS = 0x00;

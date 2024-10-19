@@ -1,6 +1,6 @@
 ###############################################################################
 # Created by write_sdc
-# Mon Oct 14 21:09:07 2024
+# Sat Oct 19 15:40:47 2024
 ###############################################################################
 current_design signal_generator
 ###############################################################################
@@ -233,17 +233,6 @@ set_multicycle_path -setup\
 # Environment
 ###############################################################################
 set_load -pin_load 0.1900 [get_ports {wbs_ack_o}]
-set_load -pin_load 0.1900 [get_ports {io_analog[10]}]
-set_load -pin_load 0.1900 [get_ports {io_analog[9]}]
-set_load -pin_load 0.1900 [get_ports {io_analog[8]}]
-set_load -pin_load 0.1900 [get_ports {io_analog[7]}]
-set_load -pin_load 0.1900 [get_ports {io_analog[6]}]
-set_load -pin_load 0.1900 [get_ports {io_analog[5]}]
-set_load -pin_load 0.1900 [get_ports {io_analog[4]}]
-set_load -pin_load 0.1900 [get_ports {io_analog[3]}]
-set_load -pin_load 0.1900 [get_ports {io_analog[2]}]
-set_load -pin_load 0.1900 [get_ports {io_analog[1]}]
-set_load -pin_load 0.1900 [get_ports {io_analog[0]}]
 set_load -pin_load 0.1900 [get_ports {io_oeb[26]}]
 set_load -pin_load 0.1900 [get_ports {io_oeb[25]}]
 set_load -pin_load 0.1900 [get_ports {io_oeb[24]}]

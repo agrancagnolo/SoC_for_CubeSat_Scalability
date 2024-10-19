@@ -25,20 +25,13 @@ module signal_generator_tb;
 	reg power3, power4;
 
     wire gpio;
-	//wire uart_rx;
     wire [37:0] mprj_io;
-	//wire uart_pulse; //  Pulso salida UART
-	//reg  toggle; 	 //  Pulso Schmitt trigger
-	//reg  [3:0] pulse_counter; // Inicializar el contador
+
 	wire [2:0] o_result;
 	reg i_test;
 
 	
 	// Seleccion de valores
-	/*
-	assign uart_rx    =  mprj_io[6];  //Out
-	assign mprj_io[7] =  toggle;	  //In
-	assign uart_pulse =  mprj_io[35];  //Out*/
 	assign o_result    	=  	mprj_io[9:7];  //Out
 	assign mprj_io[37] 	= 	i_test; //In
 	
@@ -47,14 +40,10 @@ module signal_generator_tb;
 	// would be the fast clock.
 
 	//Clock
-	always #12.5 clock <= (clock === 1'b0); //Frecuencia del clock 40 MHz
-	//Pulso Schmitt Trigger
-	//always #500 toggle <= (toggle === 1'b0);// Frecuencia del pulso 1 MHz.
+	always #12.5 clock <= (clock === 1'b0); 
 	
 	initial begin
 		clock  = 0;
-		//toggle = 0;
-		//pulse_counter = 5;
 		i_test = 1;
 	end
 		
@@ -63,10 +52,9 @@ module signal_generator_tb;
 		$dumpfile("signal_generator.vcd");
 		$dumpvars(0, signal_generator_tb);
 
-		// Repeat cycles of 1000 clock edges as needed to complete testbench
+		// Repeat cycles of 1000⁵ clock edges as needed to complete testbench
 		repeat (500) begin
 			repeat (1000) @(posedge clock);
-			// $display("+1000 cycles");
 		end
 		$display("%c[1;31m",27);
 		$display ("Monitor: Timeout, Test Mega-Project IO Ports (RTL) Failed");
@@ -110,17 +98,6 @@ module signal_generator_tb;
 			$display("Fin Test");
 			$finish;
 		end
-		/*
-		pulse_counter <= pulse_counter - 1; // Decrementar el contador en cada pulso
-		#1 $display("uart_pulse state = %b ", uart_pulse);
-		if (pulse_counter == 0)// Contar 4 pulsos 
-		begin
-			wait(uart_pulse==1)
-			wait(uart_pulse==0)
-			wait(uart_pulse==1)
-			$display("Fin Test");
-			$finish;
-		end*/
 	end
 
 
@@ -173,10 +150,5 @@ module signal_generator_tb;
 		.io2(),			// not used
 		.io3()			// not used
 	);
-	/*
-	// Testbench UART
-	tb_uart_decimal tb_uart_decimal (
-		.ser_rx(uart_rx)
-	);*/
 endmodule
 `default_nettype wire

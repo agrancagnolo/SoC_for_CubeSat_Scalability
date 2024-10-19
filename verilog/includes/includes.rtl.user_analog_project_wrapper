@@ -15,7 +15,6 @@
 
 # Caravel user project includes
 -v $(USER_PROJECT_VERILOG)/rtl/user_analog_project_wrapper.v	     
--v $(USER_PROJECT_VERILOG)/rtl/analog_signal_generator.v
 -v $(USER_PROJECT_VERILOG)/rtl/signal_generator.v
 
 
