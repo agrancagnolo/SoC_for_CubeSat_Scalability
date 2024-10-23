@@ -17,23 +17,25 @@
 
 module analog_signal_generator #(
     parameter       CICLOS_FORMAS_DE_ONDA = 8)
-(   input wire      i_enable,
-    input wire [31:0]  contador,
-    input wire      i_clock, 
-    output reg      o_adc_start_conversion
+(   input wire      	i_enable,
+    input wire 		i_phi_l2,
+    input wire [31:0]  	contador,
+    input wire      	i_clock, 
+    output reg      	o_adc_start_conversion
 );
 
 wire o_pixel_flag;
 //FLAG DE GENERACION DE PULSOS DE CONVERISON
-assign o_pixel_flag = ((contador >= CICLOS_FORMAS_DE_ONDA*5) && (contador< 2053*CICLOS_FORMAS_DE_ONDA));
+assign o_pixel_flag = ((contador >= (CICLOS_FORMAS_DE_ONDA*5)-1) && (contador< 2053*CICLOS_FORMAS_DE_ONDA));
 
 //GENERACION SINCRONICA DEL PULSO
 always @(posedge i_clock) begin
     if (~i_enable)
-        o_adc_start_conversion = 0;
-    else if(o_pixel_flag) begin
+        o_adc_start_conversion = 1'b0;
+    else if(~o_pixel_flag) 
+    	o_adc_start_conversion = 1'b0;
+    else if (o_pixel_flag && (i_phi_l2==1'b0))
         o_adc_start_conversion = ~o_adc_start_conversion;
-    end
 end
 endmodule
 
