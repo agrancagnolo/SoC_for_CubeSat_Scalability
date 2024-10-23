@@ -53,7 +53,7 @@
 
 module tb_signal_generator();
 
-    parameter CLK_PERIOD=26;
+    parameter CLK_PERIOD=25;
     
     // Señales de entrada
     wire i_enable;

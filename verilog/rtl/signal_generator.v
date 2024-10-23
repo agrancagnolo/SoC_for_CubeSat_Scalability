@@ -61,7 +61,7 @@ module signal_generator #(
 	
     // LOCALPARAM 
     localparam MIN_TIEMPO_REQ =   CICLOS_FORMAS_DE_ONDA * 2052+PHI_P_WIDTH;
-    localparam CICLOS_FORMAS_DE_ONDA =   8;
+    localparam CICLOS_FORMAS_DE_ONDA =   16;
     localparam CICLOS_PHI_L =   CICLOS_FORMAS_DE_ONDA/2;
     localparam CICLOS_PHI_R =   CICLOS_FORMAS_DE_ONDA/4;
 
@@ -303,12 +303,10 @@ assign i_f_select_mux = i_test ? i_f_select_wb : i_f_select ;
     end
 
     always @(posedge i_clk_mux) begin
-        io_out[6:0] <= 0;
         io_out[10] <= o_phi_p; 
         io_out[11] <= o_phi_l1;
         io_out[12] <= o_phi_l2;
         io_out[13] <= o_phi_r;
-        io_out[26:14] <= 0;
     end
 
     always @(posedge wb_clk_i) begin
@@ -318,5 +316,14 @@ assign i_f_select_mux = i_test ? i_f_select_wb : i_f_select ;
             wbs_ack_o <= (wbs_stb_i && (wbs_adr_i == ENABLE_ADDRESS || wbs_adr_i == FREQUENCY_ADDRESS || wbs_adr_i == CLOCK_ADDRESS || wbs_adr_i == RETURN_ADDRESS || wbs_adr_i == PHI_P_ADDRESS || wbs_adr_i == PHI_L1_ADDRESS || wbs_adr_i == PHI_L2_ADDRESS || wbs_adr_i == PHI_R_ADDRESS));
         end
 
+
+    analog_signal_generator #(.CICLOS_FORMAS_DE_ONDA(CICLOS_FORMAS_DE_ONDA))
+     analog_signal_gen0 (
+        .i_enable(i_enable_mux),
+        .i_clock(i_clk_mux),
+        .contador(contador), 
+        .i_phi_l2(o_phi_l2),
+        .o_adc_start_conversion(adc_start_conversion)
+    );
 
 endmodule
