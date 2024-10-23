@@ -191,7 +191,7 @@ module signal_generator #(
 
      // LOCALPARAM 
     localparam MIN_TIEMPO_REQ =   CICLOS_FORMAS_DE_ONDA * 2052+PHI_P_WIDTH;
-    localparam CICLOS_FORMAS_DE_ONDA =   8;
+    localparam CICLOS_FORMAS_DE_ONDA =   16;
     localparam CICLOS_PHI_L =   CICLOS_FORMAS_DE_ONDA/2;
     localparam CICLOS_PHI_R =   CICLOS_FORMAS_DE_ONDA/4;
 
@@ -457,7 +457,8 @@ analog_signal_generator #(.CICLOS_FORMAS_DE_ONDA(CICLOS_FORMAS_DE_ONDA))
         .i_enable(i_enable_mux),
         .i_clock(i_clk_mux),
         .contador(contador), 
-        .o_adc_start_conversion(i_conv_start)
+        .i_phi_l2(o_phi_l2),
+        .o_adc_start_conversion(adc_start_conversion)
     );
 
 // INSTANCIACION ANALOGICA
