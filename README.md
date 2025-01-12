@@ -1,12 +1,20 @@
-# Caravel Analog User
+# System On Chip for CCD CubeSat Payload
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![CI](https://github.com/efabless/caravel_user_project_analog/actions/workflows/user_project_ci.yml/badge.svg)](https://github.com/efabless/caravel_user_project_analog/actions/workflows/user_project_ci.yml) [![Caravan Build](https://github.com/efabless/caravel_user_project_analog/actions/workflows/caravan_build.yml/badge.svg)](https://github.com/efabless/caravel_user_project_analog/actions/workflows/caravan_build.yml)
 
 ---
 
-## Analog Chip
+## Digital nd Analog Chip
 
-The following project implements an analog circuit from which we want to extract samples with digital circuits, for example, schim triger, and then a counter so that they are later analyzed in the riscV. The riscV can then send the data to the outside of the chip by using the UART.
+The following project presents the integration of the digital and the analog design parts in a System-on-Chip (SoC) that performs all the required Charge-Coupled Device (CCD) management. This CCD is embedded in an optical payload for the CubeSAT-UFSAT-1 mission. The whole SOC is designed, tested and integrated using open-source Electronic Design Automation (EDA) tools. The objective of the CubeSAt-UFSAT-1 CCD-payload is to capture images for the San Roque Lake's algae-concentration-studies. Such studies are important for researchs in groups related to the Gulich Institute (IG), among others. IG belongs both to the National University of Córdoba (UNC) and to CONAE, the Argentinian Space Agency. The CubeSat-UFSAT-1 mission is currently being developed at the IG.
+
+## Glossary
+`/gds` Contains the final GDS file of the Caravan chip, which integrates the digital and analog designs.
+`/mag` Contains the layouts of all the designs
+`/xschem` Contains all the schematics and testbenches for the analog components.
+`/verilog/rtl` Contains all the Verilog files for the digital designs, including black boxes for the analog components.
+`/verilog/dv/signal_generator` Contains all the scripts required for digital testing of the behavioral design already integrated into the Caravan chip.
+
 
 ## Install PDK
 
@@ -45,7 +53,7 @@ The following project implements an analog circuit from which we want to extract
     netgen -batch lvs "../xschem/example_por.spice example_por" "../mag/example_por.spice example_por"
     
 
-## Commands
+## Commands to recreate the tests
 
 - export CARAVEL_LITE=0
 
@@ -68,99 +76,8 @@ The following project implements an analog circuit from which we want to extract
     ifeq ($(CONFIG),user_analog_project_wrapper)
 ```
 
-- Modificacion en mgmt_core_wrapper/verilog/dv/vip/tbuart.v
 
-```
-
-    module tbuart (
-    input  ser_rx,
-    output  ser_tx
-    );
-	reg [3:0] recv_state;
-	reg [2:0] recv_divcnt;
-	reg [7:0] recv_pattern;
-	reg [8*50-1:0] recv_buf_data;	// 50 characters.  Increase as needed for tests.
-	reg [8*50-1:0] recv_buf_rev;	
-	reg clk;
-	integer i; // Variable para el bucle for
-	integer hex_value; // Variable para almacenar el valor decimal
-	initial begin
-		clk <= 1'b0;
-		recv_state <= 0;
-		recv_divcnt <= 0;
-		recv_pattern <= 0;
-		recv_buf_data <= 0;
-	end
-
-	// NOTE:  Running at 3.0us clock period @ 5 clocks per bit = 15.0us per
-	// bit ~= 64 kbaud. Not tuned to any particular UART.  Most run at
-	// 9600 baud default and will bounce up to higher baud rates when
-	// passed specific command words.
-
-    //	always #1500 clk <= (clk === 1'b0);
-        always #2650 clk <= (clk === 1'b0);  // working for 9600 baud
-    //	always #125 clk <= (clk === 1'b0);
-
-	always @(posedge clk) begin
-		recv_divcnt <= recv_divcnt + 1;
-		case (recv_state)
-			0: begin
-				if (!ser_rx)
-					recv_state <= 1;
-				recv_divcnt <= 0;
-			end
-			1: begin
-				if (2*recv_divcnt > 3'd3) begin
-					recv_state <= 2;
-					recv_divcnt <= 0;
-				end
-			end
-			10: begin
-				if (recv_divcnt > 3'd3) begin
-					// 0x0a = '\n'
-					if (recv_pattern == 8'h0a) 
-					begin
-						// Invert the string before displaying
-						for (i = 0; i < 50; i = i + 1) begin
-							recv_buf_rev[8*(50-i-1) +: 8] = recv_buf_data[8*i +: 8];
-						end
-						//$display("output: %s", recv_buf_rev);
-						// Display each character as ASCII value
-                        // Convert the hexadecimal string to a decimal value
-                        hex_value = 0;
-                        for (i = 0; i < 50; i = i + 1) begin
-                            if (recv_buf_data[8*i +: 8] != 8'h00) begin
-                                hex_value = hex_value * 16 + (
-                                    (recv_buf_data[8*i +: 8] >= "0" && recv_buf_data[8*i +: 8] <= "9") ?
-                                    (recv_buf_data[8*i +: 8] - "0") :
-                                    (recv_buf_data[8*i +: 8] - "A" + 10)
-                                );
-                            end
-                        end
-                        $display("output (Decimal): %d", hex_value);
-						recv_buf_data <= 0;
-						//recv_buf_rev <= 0;
-						//$display("output: %s", recv_buf_data);
-						//recv_buf_data <= 0;
-					end else begin
-						recv_buf_data <= {recv_buf_data, recv_pattern};
-					end
-					recv_state <= 0;
-				end
-			end
-			default: begin
-				if (recv_divcnt > 3'd3) begin
-					recv_pattern <= {ser_rx, recv_pattern[7:1]};
-					recv_state <= recv_state + 1;
-					recv_divcnt <= 0;
-				end
-			end
-		endcase
-	end
-    endmodule
-```
-
-- Ejecutar make verify-test_mixer-rtl
+- Ejecutar make verify-signal?generator-rtl
 
 	En caso de error en dependencies/pdks/sky130A/libs.ref/sky130_fd_io/verilog/sky130_ef_io.v comentar las lineas 1364/1365.
 ```	
@@ -171,7 +88,7 @@ The following project implements an analog circuit from which we want to extract
 
 - Dentro del directorio openlane ejecutar
 
-	make test_mixer
+	make signal_generator
 	make user_analog_project_wrapper
 
 - Finalmente en caravan ejecutar
