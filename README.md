@@ -84,7 +84,6 @@ The following project presents the integration of the digital and the analog des
 	// .DRN_HVC(DRN_HVC),
 	// .SRC_BDY_HVC(SRC_BDY_HVC),
 ```
-![verify-test_mixer-rtl](docs/images/img_1.jpg)
 
 - Dentro del directorio openlane ejecutar
 
@@ -98,7 +97,7 @@ The following project presents the integration of the digital and the analog des
 	ulimit -n 2024
 	make truck
 
-![caravan](docs/images/Caravan.jpg)
+![caravan](docs/images/caravan_gds.png)
 
 - Proximos pasos
 
