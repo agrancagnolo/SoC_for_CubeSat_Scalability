@@ -1,8 +1,8 @@
-CARAVEL_ROOT: /home/ivogc/tesis/repositories/SoC_cubesats/caravel
-MCW_ROOT: /home/ivogc/tesis/repositories/SoC_cubesats/mgmt_core_wrapper
+CARAVEL_ROOT: /home/celina/SoC_for_CubeSat/caravel
+MCW_ROOT: /home/celina/SoC_for_CubeSat/mgmt_core_wrapper
 PDK: sky130A
-PDK_ROOT: /home/ivogc/tesis/repositories/SoC_cubesats/dependencies/pdks
-USER_PROJECT_ROOT: /home/ivogc/tesis/repositories/SoC_cubesats
+PDK_ROOT: /home/celina/SoC_for_CubeSat/dependencies/pdks
+USER_PROJECT_ROOT: /home/celina/SoC_for_CubeSat
 caravan: false
 clk: 25
 emailto:
