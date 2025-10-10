@@ -49,7 +49,7 @@
 `define DM_INIT 3'b001
 
 `include "signal_generator.v"
-`include "analog_signal_generator.v"
+//`include "analog_signal_generator.v"
 
 module tb_signal_generator();
 
