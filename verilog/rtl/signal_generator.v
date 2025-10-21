@@ -169,7 +169,9 @@ module signal_generator #(
     wire         i_load;
     reg          i_conv_start;
     wire         i_data_config;
-    wire         i_reset;       
+    wire         i_reset;    
+    //wire adc_start_conversion;
+   
  
 
     //ANALOGICA
